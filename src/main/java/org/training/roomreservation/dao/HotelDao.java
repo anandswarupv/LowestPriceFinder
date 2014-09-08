@@ -1,6 +1,7 @@
 package org.training.roomreservation.dao;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -27,6 +28,35 @@ public class HotelDao {
 	ConnectionManager connectionManager;
 	
 	private static final String GET_ALL_HOTELS = "select * from hotel";
+	private static final String GET_HOTEL = "select * from hotel where id = ?";
+	
+	public Hotel getHotel(Long id) {
+		Hotel hotel = null;
+        Connection connection = connectionManager.getConnection();
+        if (connection != null) {
+            try {
+                PreparedStatement prepareStatement = connection.prepareStatement(GET_HOTEL);
+                prepareStatement.setLong(1, id);
+                ResultSet resultSet = prepareStatement.executeQuery();
+                while(resultSet.next()) {
+                	String name = resultSet.getString("name");
+                	int rating = resultSet.getInt("rating");
+                	Address address = addressDao.getAddressForHotelId(id);
+                	Rates rates = ratesDao.getRatesforHotelId(id);
+                	hotel = new Hotel((Long)id, name, address, rating, rates);
+                }
+                connection.commit();
+                resultSet.close();
+                prepareStatement.close();
+            } catch (SQLException e) {               
+                e.printStackTrace();
+                return null;
+            }            
+        } else {
+        	System.out.println("No Database Connection");        
+        }
+        return hotel;	
+	}
 	
 	public List<Hotel> getAllHotels() {
 		List<Hotel> hotels = new ArrayList<Hotel>();

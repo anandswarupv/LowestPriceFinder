@@ -13,7 +13,7 @@ import org.training.roomreservation.utils.Terminal;
 
 public class Main {
 	
-    private final static Terminal TERMINAL = Terminal.getInstance(HotelRoomReservationApp.class.getName());
+    private final static Terminal TERMINAL = Terminal.getInstance(Main.class.getName());
     
     /**
      * Main method for the program
