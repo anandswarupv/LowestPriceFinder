@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.training.roomreservation.dao.HotelDao;
 import org.training.roomreservation.model.Address;
 import org.training.roomreservation.model.Hotel;
 import org.training.roomreservation.model.Rates;
+import org.training.roomreservation.services.LowestPriceFinderService;
 import org.training.roomreservation.utils.RESTConstants;
 
 @Controller
@@ -23,7 +23,7 @@ public class LowestPriceFinderController {
 	private static final Logger logger = LoggerFactory.getLogger(LowestPriceFinderController.class);
 	
 	@Autowired
-	HotelDao hotelDao;
+	LowestPriceFinderService lowestPriceFinderService;
     
     @RequestMapping(value = RESTConstants.DUMMY_HOTEL, method = RequestMethod.GET)
     public @ResponseBody Hotel getDummyHotel() {
@@ -37,12 +37,12 @@ public class LowestPriceFinderController {
     @RequestMapping(value = RESTConstants.GET_HOTEL, method = RequestMethod.GET)
     public @ResponseBody Hotel getHotel(@PathVariable("id") long hotelId) {
         logger.info("Start getHotel. ID="+hotelId);
-        return hotelDao.getHotel(hotelId);
+        return lowestPriceFinderService.getHotel(hotelId);
     }
 
     @RequestMapping(value = RESTConstants.GET_ALL_HOTELS, method = RequestMethod.GET)
     public @ResponseBody List<Hotel> getHotels() {
         logger.info("Start getAllHotels");
-        return hotelDao.getAllHotels();
+        return lowestPriceFinderService.getAllHotels();
     }
 }

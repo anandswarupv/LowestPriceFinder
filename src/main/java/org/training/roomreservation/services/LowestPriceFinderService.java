@@ -66,6 +66,14 @@ public class LowestPriceFinderService {
         executorService.shutdown();
         return getBestResult(searchResults);
     }
+    
+    public Hotel getHotel(long hotelId) {
+    	return hotelDao.getHotel(hotelId);
+    }
+
+    public List<Hotel> getAllHotels() {
+    	return hotelDao.getAllHotels();
+    }
 
     private void initializeHotels() {
     	hotels = hotelDao.getAllHotels();
