@@ -63,7 +63,6 @@ public class LowestPriceFinderService {
         } catch (InterruptedException e) {
             throw new RuntimeException("Rates for all hotels could not be checked : " + e.getCause());
         }
-        executorService.shutdown();
         return getBestResult(searchResults);
     }
     

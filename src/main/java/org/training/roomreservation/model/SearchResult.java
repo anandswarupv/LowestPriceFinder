@@ -1,5 +1,6 @@
 package org.training.roomreservation.model;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 /**
@@ -10,9 +11,10 @@ import java.math.BigDecimal;
  * 
  * @author Anand Swarup V
  */
-public class SearchResult implements Comparable<SearchResult> {
+public class SearchResult implements Comparable<SearchResult>, Serializable {
     
-    private final Hotel hotel;
+	private static final long serialVersionUID = 3184012319580077718L;
+	private final Hotel hotel;
     private final BigDecimal totalBookingPrice;
     
     public SearchResult(Hotel hotel, BigDecimal totalBookingPrice) {

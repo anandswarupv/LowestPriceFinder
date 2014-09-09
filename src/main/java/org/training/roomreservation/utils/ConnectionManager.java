@@ -3,10 +3,11 @@ package org.training.roomreservation.utils;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
+import org.springframework.beans.factory.DisposableBean;
 import org.springframework.stereotype.Component;
 
 @Component
-public class ConnectionManager {
+public class ConnectionManager implements DisposableBean {
 
 	private String db_connect_string = "jdbc:postgresql://127.0.0.1:5432/anand";
 	private String db_userid = "postgres";
@@ -27,21 +28,22 @@ public class ConnectionManager {
 		}
 	}
 
-	@SuppressWarnings("unused")
-	private void closeConnection() {
-		try {
-			if (connection != null) {
-				connection.close();
-				System.out.println("Connection Closed");
-			}
-		} catch (Exception ex) {
-		}
-	}
-
 	public Connection getConnection() {
 		if (connection == null) {
 			initConnection();
 		}
 		return connection;
+	}
+
+	@Override
+	public void destroy() throws Exception {
+		try {
+			if (connection != null) {
+				connection.close();
+				System.out.println("Connection Closed");
+			}		
+		} catch (Exception ex) {
+			System.out.println(ex.getMessage());
+		}
 	}
 }
