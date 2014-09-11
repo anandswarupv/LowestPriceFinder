@@ -1,4 +1,4 @@
-package com.xebia.tdd.training.roomreservation.legacy2;
+package com.xebia.tdd.training.hotelreservation.legacy2;
 
 import java.util.Arrays;
 import java.util.List;
