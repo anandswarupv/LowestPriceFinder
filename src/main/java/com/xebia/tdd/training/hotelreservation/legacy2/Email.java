@@ -23,4 +23,20 @@ public class Email {
 		this.subject = subject;
 	}
 
+	public Integer getNextAvailableNumber() {
+		return nextAvailableNumber;
+	}
+
+	public void setNextAvailableNumber(Integer nextAvailableNumber) {
+		this.nextAvailableNumber = nextAvailableNumber;
+	}
+
+	public String getMessage() {
+		return message;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
+	}
+
 }
