@@ -1,4 +1,4 @@
-package com.xebia.tdd.training.hoteleservation.utils;
+package com.xebia.tdd.training.hotelreservation.utils;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

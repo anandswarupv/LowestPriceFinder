@@ -14,11 +14,11 @@ import java.util.concurrent.Future;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.xebia.tdd.training.hoteleservation.utils.Terminal;
 import com.xebia.tdd.training.hotelreservation.dao.HotelDao;
 import com.xebia.tdd.training.hotelreservation.model.CustomerType;
 import com.xebia.tdd.training.hotelreservation.model.Hotel;
 import com.xebia.tdd.training.hotelreservation.model.SearchResult;
+import com.xebia.tdd.training.hotelreservation.utils.Terminal;
 
 /**
  * <p>
@@ -71,12 +71,12 @@ public class LowestPriceFinderService {
     	return hotelDao.getHotel(hotelId);
     }
 
-    public List<Hotel> getAllHotels() {
-    	return hotelDao.getAllHotels();
+    public List<Hotel> getHotels() {
+        return hotelDao.getHotels();
     }
 
     private void initializeHotels() {
-    	hotels = hotelDao.getAllHotels();
+        hotels = hotelDao.getHotels();
         TERMINAL.debug(hotels.size() + " hotels registered in the LowestPriceFinderService");
         executorService = Executors.newFixedThreadPool(hotels.size());
 	}
