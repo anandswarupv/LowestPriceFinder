@@ -14,14 +14,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.xebia.tdd.training.hoteleservation.utils.CalendarUtil;
-import com.xebia.tdd.training.hoteleservation.utils.RESTConstants;
 import com.xebia.tdd.training.hotelreservation.model.Address;
 import com.xebia.tdd.training.hotelreservation.model.CustomerType;
 import com.xebia.tdd.training.hotelreservation.model.Hotel;
 import com.xebia.tdd.training.hotelreservation.model.Rates;
 import com.xebia.tdd.training.hotelreservation.model.SearchResult;
 import com.xebia.tdd.training.hotelreservation.services.LowestPriceFinderService;
+import com.xebia.tdd.training.hotelreservation.utils.CalendarUtil;
+import com.xebia.tdd.training.hotelreservation.utils.RESTConstants;
 
 @Controller
 public class LowestPriceFinderController {
@@ -49,7 +49,7 @@ public class LowestPriceFinderController {
     @RequestMapping(value = RESTConstants.GET_ALL_HOTELS, method = RequestMethod.GET)
     public @ResponseBody List<Hotel> getHotels() {
         logger.info("Start getAllHotels");
-        return lowestPriceFinderService.getAllHotels();
+        return lowestPriceFinderService.getHotels();
     }
     
     @RequestMapping(value = RESTConstants.GET_HOTEL_FOR_GIVEN_DATES_AND_CUSTOMER_TYPE, method = RequestMethod.GET)

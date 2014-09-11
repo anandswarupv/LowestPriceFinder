@@ -1,4 +1,4 @@
-package com.xebia.tdd.training.hoteleservation.utils;
+package com.xebia.tdd.training.hotelreservation.utils;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

@@ -9,8 +9,8 @@ import java.sql.SQLException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.xebia.tdd.training.hoteleservation.utils.ConnectionManager;
 import com.xebia.tdd.training.hotelreservation.model.Rates;
+import com.xebia.tdd.training.hotelreservation.utils.ConnectionManager;
 
 @Component
 public class RatesDao {
