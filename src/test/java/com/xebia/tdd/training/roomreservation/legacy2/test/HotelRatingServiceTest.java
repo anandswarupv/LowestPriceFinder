@@ -35,7 +35,7 @@ public class HotelRatingServiceTest {
 				.getUpdatedHotelRatings();
 		Assert.assertTrue(1 == updatedHotelRatings.size());
 		// More Assertions to test ratings
-
+		
 	}
 
 	class HotelRatingServiceExt extends HotelRatingService {
