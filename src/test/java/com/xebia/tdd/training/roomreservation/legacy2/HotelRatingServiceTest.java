@@ -1,4 +1,4 @@
-package com.xebia.tdd.training.roomreservation.legacy2.test;
+package com.xebia.tdd.training.roomreservation.legacy2;
 
 import java.util.Arrays;
 import java.util.List;
@@ -35,7 +35,7 @@ public class HotelRatingServiceTest {
 				.getUpdatedHotelRatings();
 		Assert.assertTrue(1 == updatedHotelRatings.size());
 		// More Assertions to test ratings
-
+		
 	}
 
 	class HotelRatingServiceExt extends HotelRatingService {

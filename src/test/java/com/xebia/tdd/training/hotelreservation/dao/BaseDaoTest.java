@@ -1,10 +1,10 @@
 package com.xebia.tdd.training.hotelreservation.dao;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import org.apache.commons.dbcp.BasicDataSource;
 import org.junit.BeforeClass;
 
 public class BaseDaoTest {
@@ -23,19 +23,10 @@ public class BaseDaoTest {
         String driver = "org.h2.Driver";
         String userName = "sa";
         String password = "password";
-        System.setProperty("database.dbcp.url", url);
-        System.setProperty("database.dbcp.username", userName);
-        System.setProperty("database.dbcp.driverClassName", driver);
-        System.setProperty("database.dbcp.password", password);
-        System.setProperty("database.datasource.type", "dbcp");
-        System.setProperty("database.datasource.jndiname", "jdbc/mdm-ds");
 
-        BasicDataSource ds = new BasicDataSource();
-        ds.setDriverClassName(driver);
-        ds.setUrl(url);
-        ds.setUsername(userName);
-        ds.setPassword(password);
-        connection = ds.getConnection();
+        Class.forName(driver).newInstance();
+        connection = DriverManager.getConnection(url, userName, password);
+
         try {
             createTables();
         } catch (Throwable e) {
