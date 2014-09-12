@@ -5,9 +5,10 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import org.junit.AfterClass;
 import org.junit.BeforeClass;
 
-public class BaseDaoTest {
+public abstract class BaseDaoTest {
 
     protected static Connection connection;
 
@@ -32,6 +33,14 @@ public class BaseDaoTest {
         } catch (Throwable e) {
             e.printStackTrace();
         }
+    }
+
+    @AfterClass
+    public static void cleanUpDB() throws SQLException {
+        Statement statement = connection.createStatement();
+        statement.executeUpdate("drop table rates");
+        statement.executeUpdate("drop table address");
+        statement.executeUpdate("drop table hotel");
     }
 
     public Connection getConnection() {

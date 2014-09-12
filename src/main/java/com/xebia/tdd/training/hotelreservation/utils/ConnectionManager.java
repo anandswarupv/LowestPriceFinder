@@ -4,14 +4,14 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 
 import org.springframework.beans.factory.DisposableBean;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 public class ConnectionManager implements DisposableBean {
 
-    private String db_connect_string = "jdbc:postgresql://127.0.0.1:5432/anand";
-    private String db_userid = "postgres";
-    private String db_password = "postgres";
+    @Autowired
+    HotelDatabase hotelDatabase;
 
     private static String url = "jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;MODE=PostgreSQL;TRACE_LEVEL_SYSTEM_OUT=1";
     private static String driver = "org.h2.Driver";
@@ -22,6 +22,7 @@ public class ConnectionManager implements DisposableBean {
 
     private void initConnection() {
         try {
+            hotelDatabase.init();
             System.out.println("Inside Connection Manager");
             Class.forName(driver).newInstance();
             connection = DriverManager.getConnection(url, userName, password);

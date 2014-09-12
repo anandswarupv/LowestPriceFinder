@@ -5,6 +5,9 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class HotelDatabase {
     
     protected static Connection connection;
@@ -14,7 +17,7 @@ public class HotelDatabase {
      * 
      * @throws Exception
      */
-    public static void init() throws Exception {
+    public void init() throws Exception {
         String url = "jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;MODE=PostgreSQL;TRACE_LEVEL_SYSTEM_OUT=1";
         String driver = "org.h2.Driver";
         String userName = "sa";
@@ -29,7 +32,7 @@ public class HotelDatabase {
         }
     }
 
-    private static void initializeTables() throws SQLException {
+    private void initializeTables() throws SQLException {
         initializeHotel();
         initializeAddress();
         initializeRates();
@@ -39,13 +42,13 @@ public class HotelDatabase {
         return connection;
     }
 
-    private static void createTables() throws SQLException {
+    private void createTables() throws SQLException {
         createTableHotel();
         createTableAddress();
         createTableRates();
     }
 
-    private static void createTableRates() throws SQLException {
+    private void createTableRates() throws SQLException {
         Statement statement = connection.createStatement();
         statement.execute("CREATE TABLE RATES ("
                 + "HOTEL_ID BIGINT NOT NULL, "
@@ -58,7 +61,7 @@ public class HotelDatabase {
         statement.close();
     }
 
-    private static void createTableAddress() throws SQLException {
+    private void createTableAddress() throws SQLException {
         Statement statement = connection.createStatement();
         statement.execute("CREATE TABLE ADDRESS ("
                 + "HOTEL_ID BIGINT, "
@@ -72,7 +75,7 @@ public class HotelDatabase {
         statement.close();
     }
 
-    private static void createTableHotel() throws SQLException {
+    private void createTableHotel() throws SQLException {
         Statement statement = connection.createStatement();
         statement.execute("CREATE TABLE HOTEL ("
                 + "ID BIGINT NOT NULL, "
@@ -83,7 +86,7 @@ public class HotelDatabase {
         statement.close();
     }
     
-    private static void initializeRates() throws SQLException {
+    private void initializeRates() throws SQLException {
         Statement statement = connection.createStatement();
         statement.execute("INSERT INTO RATES VALUES (1001, 110, 80, 90, 80)");
         statement.execute("INSERT INTO RATES VALUES (1002, 160, 110, 60, 50)");
@@ -91,7 +94,7 @@ public class HotelDatabase {
         statement.close();
     }
 
-    private static void initializeAddress() throws SQLException {
+    private void initializeAddress() throws SQLException {
         Statement statement = connection.createStatement();
         statement.execute("INSERT INTO ADDRESS VALUES (1001, '1111 1st St','Santa Monica','CA','90403','USA')");
         statement.execute("INSERT INTO ADDRESS VALUES (1002, '1112 2nd St','Santa Monica','CA','90403','USA')");
@@ -99,7 +102,7 @@ public class HotelDatabase {
         statement.close();
     }
 
-    private static void initializeHotel() throws SQLException {
+    private void initializeHotel() throws SQLException {
         Statement statement = connection.createStatement();
         statement.execute("INSERT INTO HOTEL VALUES (1001, 'Lakewood HOTELS', 3)");
         statement.execute("INSERT INTO HOTEL VALUES (1002, 'Bridgewood HOTELS', 4)");
