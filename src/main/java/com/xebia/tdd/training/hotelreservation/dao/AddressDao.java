@@ -13,22 +13,26 @@ import com.xebia.tdd.training.hotelreservation.utils.ConnectionManager;
 
 @Component
 public class AddressDao {
-	
-	@Autowired
-	ConnectionManager connectionManager;
-	
-	private static final String GET_ADDRESS_FOR_HOTELID = "select * from "
-			+ "address where hotel_id = ?";
-	
-	public Address getAddressForHotelId(Long id) {
-		Address address = null;
+
+    ConnectionManager connectionManager;
+
+    @Autowired
+    public AddressDao(ConnectionManager connectionManager) {
+        this.connectionManager = connectionManager;
+    }
+
+    private static final String GET_ADDRESS_FOR_HOTELID = "select * from "
+            + "address where hotel_id = ?";
+
+    public Address getAddressForHotelId(Long id) {
+        Address address = null;
         Connection connection = connectionManager.getConnection();
         if (connection != null) {
             try {
                 PreparedStatement prepareStatement = connection.prepareStatement(GET_ADDRESS_FOR_HOTELID);
                 prepareStatement.setLong(1, id);
                 ResultSet resultSet = prepareStatement.executeQuery();
-                while(resultSet.next()) {
+                while (resultSet.next()) {
                     String addressLine = resultSet.getString(2);
                     String city = resultSet.getString(3);
                     String state = resultSet.getString(4);
@@ -39,14 +43,14 @@ public class AddressDao {
                 connection.commit();
                 resultSet.close();
                 prepareStatement.close();
-            } catch (SQLException e) {               
+            } catch (SQLException e) {
                 e.printStackTrace();
                 return null;
-            }            
+            }
         } else {
-        	System.out.println("No Database Connection");        
+            System.out.println("No Database Connection");
         }
-        return address;	
-	}
+        return address;
+    }
 
 }

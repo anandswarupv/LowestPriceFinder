@@ -29,8 +29,8 @@ public class HotelDaoTest extends BaseDaoTest {
     private static final String Address1_Country = "USA";
 
     private static final String Hotel1_Name = "Lakewood HOTELS";
-    private static final String Hotel1_Id = "1001";
-    private static final String Hotel1_Rating = "3";
+    private static final Long Hotel1_Id = 1001L;
+    private static final int Hotel1_Rating = 3;
 
     private static final String Rates1_WeekendRates = "90";
     private static final String Rates1_WeekendRatesForRewardsMembers = "80";
@@ -105,5 +105,4 @@ public class HotelDaoTest extends BaseDaoTest {
         statement.execute("INSERT INTO HOTEL VALUES (1003, 'Ridgewood HOTELS', 5)");
         statement.close();
     }
-
 }
