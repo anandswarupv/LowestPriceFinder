@@ -25,24 +25,24 @@ import com.xebia.tdd.training.hotelreservation.utils.RESTConstants;
 
 @Controller
 public class LowestPriceFinderController {
-	
-	private static final Logger logger = LoggerFactory.getLogger(LowestPriceFinderController.class);
-	
-	@Autowired
-	LowestPriceFinderService lowestPriceFinderService;
-    
+
+    private static final Logger logger = LoggerFactory.getLogger(LowestPriceFinderController.class);
+
+    @Autowired
+    LowestPriceFinderService lowestPriceFinderService;
+
     @RequestMapping(value = RESTConstants.DUMMY_HOTEL, method = RequestMethod.GET)
     public @ResponseBody Hotel getDummyHotel() {
         logger.info("Start getDummyHotel");
         Address address = new Address("addressLine", "city", "state", "zip", "country");
-        Rates rates = new Rates(new BigDecimal(100), new BigDecimal(100),new BigDecimal(100),new BigDecimal(100));
-        Hotel dummyHotel = new Hotel((long)1, "",address,3,rates);
+        Rates rates = new Rates(new BigDecimal(100), new BigDecimal(100), new BigDecimal(100), new BigDecimal(100));
+        Hotel dummyHotel = new Hotel((long) 1, "", address, 3, rates);
         return dummyHotel;
     }
-     
+
     @RequestMapping(value = RESTConstants.GET_HOTEL, method = RequestMethod.GET)
     public @ResponseBody Hotel getHotel(@PathVariable("id") long hotelId) {
-        logger.info("Start getHotel. ID="+hotelId);
+        logger.info("Start getHotel. ID=" + hotelId);
         return lowestPriceFinderService.getHotel(hotelId);
     }
 
@@ -51,17 +51,17 @@ public class LowestPriceFinderController {
         logger.info("Start getAllHotels");
         return lowestPriceFinderService.getHotels();
     }
-    
+
     @RequestMapping(value = RESTConstants.GET_HOTEL_FOR_GIVEN_DATES_AND_CUSTOMER_TYPE, method = RequestMethod.GET)
     public @ResponseBody SearchResult getHotelForGivenDatesAndCustomerType(
-    		@PathVariable("fromDate") String fromDate, @PathVariable("toDate") String toDate, 
-    		@PathVariable("customerType") String customerType) throws ParseException {
+            @PathVariable("fromDate") String fromDate, @PathVariable("toDate") String toDate,
+            @PathVariable("customerType") String customerType) throws ParseException {
         logger.info("Start getHotelForGivenDatesAndCustomerType for " + fromDate + ", " + toDate + ", " + customerType);
         List<Date> dates = CalendarUtil.getDatesFromStringOfDates(fromDate + "," + toDate);
-        if (customerType.equalsIgnoreCase(CustomerType.REGULAR.toString())) 
-        	return lowestPriceFinderService.getLowestPriceHotelForGivenDates(dates, CustomerType.REGULAR);
+        if (customerType.equalsIgnoreCase(CustomerType.REGULAR.toString()))
+            return lowestPriceFinderService.getLowestPriceHotelForGivenDates(dates, CustomerType.REGULAR);
         else
-        	return lowestPriceFinderService.getLowestPriceHotelForGivenDates(dates, CustomerType.REWARDS);
+            return lowestPriceFinderService.getLowestPriceHotelForGivenDates(dates, CustomerType.REWARDS);
     }
-    
+
 }
