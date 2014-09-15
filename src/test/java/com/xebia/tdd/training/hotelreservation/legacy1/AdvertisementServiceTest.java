@@ -32,7 +32,6 @@ public class AdvertisementServiceTest {
 			else{
 				uniqueNames.add(ad.getName());
 			}
-			
 		}
 	}
 }

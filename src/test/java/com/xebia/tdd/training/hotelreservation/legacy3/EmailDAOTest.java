@@ -7,8 +7,8 @@ import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 
 import com.xebia.tdd.training.hotelreservation.legacy2.Email;
-import com.xebia.tdd.training.hotelreservation.legacy3.DBUtils;
-import com.xebia.tdd.training.hotelreservation.legacy3.EmailDAO;
+import com.xebia.tdd.training.hotelreservation.legacy4.DBUtils;
+import com.xebia.tdd.training.hotelreservation.legacy4.EmailDAO;
 
 @RunWith(PowerMockRunner.class)
 @PrepareForTest({DBUtils.class,EmailDAO.class})

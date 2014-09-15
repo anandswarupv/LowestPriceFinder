@@ -1,10 +1,8 @@
 package com.xebia.tdd.training.hotelreservation.legacy6;
 
-import com.xebia.tdd.training.hotelreservation.legacy4.User;
+import com.xebia.tdd.training.hotelreservation.legacy3.User;
 
 public class ReservationService {
-
-	private PaymentService paymentService;
 
 	public boolean doReservation(User user , Booking booking) throws Exception{
 		
@@ -17,13 +15,11 @@ public class ReservationService {
 		booking.isCouponValid(isValidCoupan);
 		boolean paymentSuccessfull = doPayment(user, booking);
 		if(!paymentSuccessfull) throw new Exception("Payment Failure");
-		
 
 		boolean reservationComplete = reserveRoom(booking);
 		if(!reservationComplete) throw new Exception("Reservation Failed");
 		
 		return true;
-		
 	}
 
 	public boolean reserveRoom(Booking booking) {
@@ -44,11 +40,7 @@ public class ReservationService {
 	}
 
 	public boolean doPayment(User user, Booking booking) throws Exception {
-//		paymentService = new PaymentService();
+		PaymentService paymentService = new PaymentService();
 		return paymentService.doPayment(user,booking);
-	}
-
-	public void setPaymentService(PaymentService paymentService) {
-		this.paymentService = paymentService;
 	}
 }

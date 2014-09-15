@@ -13,9 +13,9 @@ public class ReservationServiceTest {
 	@Test
 	public void shouldCallAllTheServicesInOrder() throws Exception {
 		ReservationService reservationService = new ReservationServiceExt();
-		PaymentService paymentService = PowerMockito.mock(PaymentService.class);
+//		PaymentService paymentService = PowerMockito.mock(PaymentService.class);
 		
-		reservationService.setPaymentService(paymentService);
+//		reservationService.setPaymentService(paymentService);
 		reservationService.doPayment(null, null);
 	}
 

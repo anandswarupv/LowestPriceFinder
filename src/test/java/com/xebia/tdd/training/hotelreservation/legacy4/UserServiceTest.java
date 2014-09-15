@@ -7,6 +7,10 @@ import org.powermock.api.mockito.PowerMockito;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 
+import com.xebia.tdd.training.hotelreservation.legacy3.User;
+import com.xebia.tdd.training.hotelreservation.legacy3.UserDAO;
+import com.xebia.tdd.training.hotelreservation.legacy3.UserService;
+
 @RunWith(PowerMockRunner.class)
 @PrepareForTest({UserService.class})
 public class UserServiceTest {

@@ -1,4 +1,4 @@
-package com.xebia.tdd.training.hotelreservation.legacy4;
+package com.xebia.tdd.training.hotelreservation.legacy3;
 
 import com.xebia.tdd.training.hotelreservation.legacy2.EmailService;
 
