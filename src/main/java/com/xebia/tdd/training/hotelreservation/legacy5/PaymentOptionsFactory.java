@@ -4,8 +4,6 @@ import java.util.List;
 
 public class PaymentOptionsFactory {
 
-//	public static final PaymentOptionsFactory instance = new PaymentOptionsFactory();
-	
 	private PaymentOptionDAO paymentOptionsDAO;
 	private List<PaymentOption> paymentOptions;
 	
