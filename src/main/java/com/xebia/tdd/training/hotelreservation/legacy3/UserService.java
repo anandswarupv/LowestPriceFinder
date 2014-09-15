@@ -17,7 +17,7 @@ public class UserService {
 	}
 
 	
-    private boolean sendEmailToUser(User user) {
+     boolean sendEmailToUser(User user) {
 		emailService.sendEmailToUser(user);
 		return true;
 	}

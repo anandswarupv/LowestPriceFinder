@@ -23,13 +23,13 @@ public class UserServiceTest {
 	}
 	
 	
-	/*@Test
+	@Test
 	public void shouldSaveUserCorrectly_1(){
 		UserService userService = new UserService();
 		userService.setUserDAO(userDAO);
 		UserService serviceSpy = Mockito.spy(userService);
 		
-		Mockito.doReturn(true).when(serviceSpy).sendEmailToUser((User)Mockito.anyObject());
+//		Mockito.doReturn(true).when(serviceSpy).sendEmailToUser((User)Mockito.anyObject());
 		
 		serviceSpy.saveUser(new User());
 	}
@@ -41,11 +41,11 @@ public class UserServiceTest {
 		UserService userService  = Mockito.mock(UserService.class);
 		userService.setUserDAO(userDAO);
 		
-		Mockito.doReturn(true).when(userService).sendEmailToUser((User)Mockito.anyObject());
+//		Mockito.doReturn(true).when(userService).sendEmailToUser((User)Mockito.anyObject());
 		Mockito.when(userService.saveUser((User)Mockito.anyObject())).thenCallRealMethod();
 		
 		userService.saveUser(new User());
-	}*/
+	}
 	
 	
 	@Test

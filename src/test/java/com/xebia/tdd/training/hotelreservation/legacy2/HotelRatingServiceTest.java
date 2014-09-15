@@ -28,11 +28,9 @@ public class HotelRatingServiceTest {
 
 		hotelRatingService.setHotelRatingDAO(hotelRatingDAO);
 		hotelRatingService.setEmailService(emailService);
-		Mockito.when(hotelRatingDAO.getAllHotelRatings()).thenReturn(
-				Arrays.asList(new HotelRating()));
+		Mockito.when(hotelRatingDAO.getAllHotelRatings()).thenReturn(Arrays.asList(new HotelRating()));
 
-		List<HotelRating> updatedHotelRatings = hotelRatingService
-				.getUpdatedHotelRatings();
+		List<HotelRating> updatedHotelRatings = hotelRatingService.getUpdatedHotelRatings();
 		Assert.assertTrue(1 == updatedHotelRatings.size());
 		// More Assertions to test ratings
 		
