@@ -18,4 +18,12 @@ public class Booking {
 		this.isValidCoupan = isValidCoupan;
 	}
 
+	public boolean isValidCoupan() {
+		return isValidCoupan;
+	}
+
+	public void setValidCoupan(boolean isValidCoupan) {
+		this.isValidCoupan = isValidCoupan;
+	}
+
 }

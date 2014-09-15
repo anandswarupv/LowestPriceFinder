@@ -23,7 +23,7 @@ public class UserServiceTest {
 	}
 	
 	
-	@Test
+	//@Test
 	public void shouldSaveUserCorrectly_1(){
 		UserService userService = new UserService();
 		userService.setUserDAO(userDAO);
@@ -35,7 +35,7 @@ public class UserServiceTest {
 	}
 	
 	
-	@Test
+	//@Test
 	public void shouldSaveUserCorrectly_2(){
 
 		UserService userService  = Mockito.mock(UserService.class);
