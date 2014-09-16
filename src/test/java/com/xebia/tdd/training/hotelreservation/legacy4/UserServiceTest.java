@@ -7,6 +7,10 @@ import org.powermock.api.mockito.PowerMockito;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 
+import com.xebia.tdd.training.hotelreservation.legacy3.User;
+import com.xebia.tdd.training.hotelreservation.legacy3.UserDAO;
+import com.xebia.tdd.training.hotelreservation.legacy3.UserService;
+
 @RunWith(PowerMockRunner.class)
 @PrepareForTest({UserService.class})
 public class UserServiceTest {
@@ -19,29 +23,29 @@ public class UserServiceTest {
 	}
 	
 	
-	/*@Test
+	//@Test
 	public void shouldSaveUserCorrectly_1(){
 		UserService userService = new UserService();
 		userService.setUserDAO(userDAO);
 		UserService serviceSpy = Mockito.spy(userService);
 		
-		Mockito.doReturn(true).when(serviceSpy).sendEmailToUser((User)Mockito.anyObject());
+//		Mockito.doReturn(true).when(serviceSpy).sendEmailToUser((User)Mockito.anyObject());
 		
 		serviceSpy.saveUser(new User());
 	}
 	
 	
-	@Test
+	//@Test
 	public void shouldSaveUserCorrectly_2(){
 
 		UserService userService  = Mockito.mock(UserService.class);
 		userService.setUserDAO(userDAO);
 		
-		Mockito.doReturn(true).when(userService).sendEmailToUser((User)Mockito.anyObject());
+//		Mockito.doReturn(true).when(userService).sendEmailToUser((User)Mockito.anyObject());
 		Mockito.when(userService.saveUser((User)Mockito.anyObject())).thenCallRealMethod();
 		
 		userService.saveUser(new User());
-	}*/
+	}
 	
 	
 	@Test

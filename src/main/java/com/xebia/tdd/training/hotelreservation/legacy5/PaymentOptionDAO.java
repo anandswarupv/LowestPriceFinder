@@ -6,8 +6,7 @@ import java.util.List;
 public class PaymentOptionDAO {
 
 	public List<PaymentOption> getPaymentOptions() {
-		List<PaymentOption> paymentOptions = new ArrayList<PaymentOption>();
-		return paymentOptions;
+		return new ArrayList<PaymentOption>();
 	}
 
 }

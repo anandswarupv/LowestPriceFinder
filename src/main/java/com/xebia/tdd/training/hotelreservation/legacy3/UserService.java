@@ -1,4 +1,4 @@
-package com.xebia.tdd.training.hotelreservation.legacy4;
+package com.xebia.tdd.training.hotelreservation.legacy3;
 
 import com.xebia.tdd.training.hotelreservation.legacy2.EmailService;
 
@@ -17,7 +17,7 @@ public class UserService {
 	}
 
 	
-    private boolean sendEmailToUser(User user) {
+     boolean sendEmailToUser(User user) {
 		emailService.sendEmailToUser(user);
 		return true;
 	}

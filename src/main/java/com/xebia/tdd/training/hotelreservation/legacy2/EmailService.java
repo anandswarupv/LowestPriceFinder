@@ -1,6 +1,6 @@
 package com.xebia.tdd.training.hotelreservation.legacy2;
 
-import com.xebia.tdd.training.hotelreservation.legacy4.User;
+import com.xebia.tdd.training.hotelreservation.legacy3.User;
 
 public class EmailService {
 
