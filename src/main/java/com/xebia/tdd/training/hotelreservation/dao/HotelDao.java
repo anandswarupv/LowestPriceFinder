@@ -1,5 +1,6 @@
 package com.xebia.tdd.training.hotelreservation.dao;
 
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -50,7 +51,6 @@ public class HotelDao {
                     Rates rates = ratesDao.getRatesforHotelId(id);
                     hotel = new Hotel((Long) id, name, address, rating, rates);
                 }
-                connection.commit();
                 resultSet.close();
                 prepareStatement.close();
             } catch (SQLException e) {
@@ -80,7 +80,6 @@ public class HotelDao {
                     Hotel hotel = new Hotel((Long) id, name, address, rating, rates);
                     hotels.add(hotel);
                 }
-                connection.commit();
                 resultSet.close();
                 statement.close();
             } catch (SQLException e) {
@@ -93,4 +92,43 @@ public class HotelDao {
         return hotels;
     }
 
+    public String getHotelNameUsingStoredProcedure(Long hotelId) {
+        String hotelName = null;
+        Connection connection = connectionManager.getConnection();
+        try {
+            CallableStatement callableStatement = connection.prepareCall("{call GET_HOTEL_NAME(?)}");
+            callableStatement.setLong(1, hotelId);
+            ResultSet resultSet = callableStatement.executeQuery();
+            while (resultSet.next()) {
+                hotelName = resultSet.getString(1);
+            }
+            resultSet.close();
+            callableStatement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        }
+        return hotelName;
+    }
+
+    public Hotel getHotelUsingStoredProcedure(Long hotelId) {
+        Hotel hotel = null;
+        Connection connection = connectionManager.getConnection();
+        try {
+            CallableStatement callableStatement = connection.prepareCall("{call GET_HOTEL(?)}");
+            callableStatement.setLong(1, hotelId);
+            ResultSet resultSet = callableStatement.executeQuery();
+            while (resultSet.next()) {
+                String name = resultSet.getString("name");
+                int rating = resultSet.getInt("rating");
+                hotel = new Hotel(hotelId, name, null, rating, null);
+            }
+            resultSet.close();
+            callableStatement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        }
+        return hotel;
+    }
 }

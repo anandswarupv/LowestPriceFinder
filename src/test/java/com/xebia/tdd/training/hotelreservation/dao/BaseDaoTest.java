@@ -20,16 +20,17 @@ public abstract class BaseDaoTest {
      */
     @BeforeClass
     public static void init() throws Exception {
-        String url = "jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;MODE=PostgreSQL;TRACE_LEVEL_SYSTEM_OUT=1";
-        String driver = "org.h2.Driver";
-        String userName = "sa";
-        String password = "password";
-
-        Class.forName(driver).newInstance();
-        connection = DriverManager.getConnection(url, userName, password);
-
         try {
+            String url = "jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;MODE=PostgreSQL;TRACE_LEVEL_SYSTEM_OUT=1";
+            String driver = "org.h2.Driver";
+            String userName = "sa";
+            String password = "password";
+
+            Class.forName(driver).newInstance();
+            connection = DriverManager.getConnection(url, userName, password);
+
             createTables();
+            createFunctions();
         } catch (Throwable e) {
             e.printStackTrace();
         }
@@ -41,6 +42,9 @@ public abstract class BaseDaoTest {
         statement.executeUpdate("drop table rates");
         statement.executeUpdate("drop table address");
         statement.executeUpdate("drop table hotel");
+        statement.executeUpdate("drop alias GET_HOTEL_NAME");
+        statement.executeUpdate("drop alias GET_HOTEL");
+        statement.close();
     }
 
     public Connection getConnection() {
@@ -51,6 +55,25 @@ public abstract class BaseDaoTest {
         createTableHotel();
         createTableAddress();
         createTableRates();
+    }
+
+    private static void createFunctions() throws SQLException {
+        createFunctionGetHotelNameFromId();
+        createFunctionGetHotelFromId();
+    }
+
+    private static void createFunctionGetHotelNameFromId() throws SQLException {
+        Statement statement = connection.createStatement();
+        statement.execute("CREATE ALIAS GET_HOTEL_NAME FOR "
+                + "\"com.xebia.tdd.training.hotelreservation.dao.Functions.getHotelNameFromId\" ");
+        statement.close();
+    }
+
+    private static void createFunctionGetHotelFromId() throws SQLException {
+        Statement statement = connection.createStatement();
+        statement.execute("CREATE ALIAS GET_HOTEL FOR "
+                + "\"com.xebia.tdd.training.hotelreservation.dao.Functions.getHotel\" ");
+        statement.close();
     }
 
     private static void createTableRates() throws SQLException {

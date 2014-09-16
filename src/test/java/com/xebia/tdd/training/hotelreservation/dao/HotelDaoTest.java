@@ -105,4 +105,16 @@ public class HotelDaoTest extends BaseDaoTest {
         statement.execute("INSERT INTO HOTEL VALUES (1003, 'Ridgewood HOTELS', 5)");
         statement.close();
     }
+
+    @Test
+    public void testGetHotelNameUsingStoredProcedure() throws Exception {
+        String hotelName = hotelDao.getHotelNameUsingStoredProcedure((Long) 1001L);
+        Assert.assertEquals(Hotel1_Name, hotelName);
+    }
+
+    @Test
+    public void testGetHotelUsingStoredProcedure() throws Exception {
+        Hotel hotel = hotelDao.getHotelUsingStoredProcedure((Long) 1001L);
+        Assert.assertEquals(Hotel1_Name, hotel.getName());
+    }
 }
