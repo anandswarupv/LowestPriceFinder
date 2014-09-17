@@ -13,7 +13,7 @@ import org.junit.Test;
 import com.jayway.restassured.path.json.JsonPath;
 import com.jayway.restassured.response.Response;
 
-public class IntegrationTests {
+public class RestAssuredIT {
     
     @Test
     public void testGetDummyHotel() throws Exception {

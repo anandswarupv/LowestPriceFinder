@@ -230,7 +230,24 @@
 				<configuration>
 					<port>8080</port>
 					<path>/</path>
+					<fork>true</fork>
 				</configuration>
+				<executions>
+					<execution>
+						<id>tomcat7:run</id>
+						<phase>pre-integration-test</phase>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>tomcat7:shutdown</id>
+						<phase>post-integration-test</phase>
+						<goals>
+							<goal>shutdown</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
