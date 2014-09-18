@@ -1,0 +1,1 @@
+* Write the test cases for the method com.xebia.tdd.training.hotelreservation.session1.Sort.mergeAndSort method.
