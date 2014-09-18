@@ -6,6 +6,7 @@ import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
@@ -42,6 +43,11 @@ public class UnitTestWithAnnotations {
 
 		// Verification
 		assertTrue(10 == sum);
+	}
+
+	@Ignore("Need to fix this test")
+	public void ignoreThisTest() throws Exception {
+
 	}
 
 	@After

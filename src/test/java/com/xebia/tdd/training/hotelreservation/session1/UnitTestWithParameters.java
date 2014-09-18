@@ -36,6 +36,7 @@ public class UnitTestWithParameters {
 		this.result = result;
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Parameterized.Parameters
 	public static Collection primeNumbers() {
 		return Arrays.asList(new Object[][] { { 1, null, 1 }, { null, 1, 1 },

@@ -5,7 +5,6 @@ import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
 public class UnitTest {
@@ -47,11 +46,6 @@ public class UnitTest {
 		assertTrue(10 == sum);
 	}
 
-	@Ignore("Need to fix this test")
-	public void ignoreThisTest() throws Exception {
-
-	}
-	
 
 	@Test
 	public void shouldSumNegativeIntegersCorrectly() throws Exception {
