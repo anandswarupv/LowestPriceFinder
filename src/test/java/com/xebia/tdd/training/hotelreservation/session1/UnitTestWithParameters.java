@@ -20,6 +20,8 @@ public class UnitTestWithParameters {
 	@Test
 	public void shouldNotThrowNullPointerExceptionForNullArguments()
 			throws Exception {
+
+		// Setup
 		unit = new Unit();
 		
 		// Execution
