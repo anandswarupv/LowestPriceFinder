@@ -52,6 +52,7 @@
 			<groupId>postgresql</groupId>
 			<artifactId>postgresql</artifactId>
 			<version>9.1-901.jdbc4</version>
+			<scope>provided</scope>
 		</dependency>
 
 		<!--  SOAP Web Service using JAX-WS -->
@@ -268,7 +269,7 @@
 				<version>2.5.2</version>
 				<configuration>
 					<check>
-						<totalLineRate>32</totalLineRate>
+						<totalLineRate>99</totalLineRate>
 					</check>
 				</configuration>
 				<executions>
