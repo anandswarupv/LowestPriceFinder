@@ -269,7 +269,7 @@
 				<version>2.5.2</version>
 				<configuration>
 					<check>
-						<totalLineRate>99</totalLineRate>
+						<totalLineRate>45</totalLineRate>
 					</check>
 				</configuration>
 				<executions>

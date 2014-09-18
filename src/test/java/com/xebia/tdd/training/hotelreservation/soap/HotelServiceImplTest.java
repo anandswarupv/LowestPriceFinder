@@ -21,30 +21,31 @@ public class HotelServiceImplTest {
 
     private static Endpoint endpoint;
     private static int port;
- 
+
     @InjectMocks
     private static HotelServiceImpl hotelServiceImpl = new HotelServiceImpl();
- 
+
     @BeforeClass
     public static void beforeClass() throws Exception {
-    	ServerSocket serverSocket = new ServerSocket(0);
-    	port = serverSocket.getLocalPort();
-    	serverSocket.close();
+        ServerSocket serverSocket = new ServerSocket(0);
+        port = serverSocket.getLocalPort();
+        serverSocket.close();
         endpoint = Endpoint.publish("http://localhost:" + port + "/", hotelServiceImpl);
     }
- 
+
     @AfterClass
     public static void afterClass() throws Exception {
         endpoint.stop();
     }
- 
-	@Test
-	public void testGetHotelName() throws Exception {
+
+    @Test
+    public void testGetHotelName() throws Exception {
         URL wsdlUrl = new URL("http://localhost:" + port + "/soap?wsdl");
         QName serviceName = new QName("http://soap.hotelreservation.training.tdd.xebia.com/", "HotelServiceImplService");
         Service service = Service.create(wsdlUrl, serviceName);
         HotelService port = service.getPort(HotelService.class);
-        String hotelName = port.getHotelName((Long)1001L);
-        assertEquals("Lakewood HOTELS", hotelName);	}
+        String hotelName = port.getHotelName((Long) 1001L);
+        assertEquals("Lakewood HOTELS", hotelName);
+    }
 
 }
