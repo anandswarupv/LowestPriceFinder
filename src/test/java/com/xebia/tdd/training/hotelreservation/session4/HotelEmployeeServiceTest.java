@@ -4,6 +4,7 @@ import org.hamcrest.Matchers;
 import org.junit.Assert;
 import org.junit.Test;
 import org.mockito.ArgumentMatcher;
+import org.mockito.InOrder;
 import org.mockito.Mockito;
 
 public class HotelEmployeeServiceTest {
@@ -47,6 +48,25 @@ public class HotelEmployeeServiceTest {
 		
 	}
 
+	
 	// Mocks Execution Order Scenario
+	@Test
+	public void shouldSendEmailAfterUpdatingTheDatabase () {
+		HotelEmployeeService employeeService = new HotelEmployeeService();
+		HotelEmployeeDAO hotelEmployeeDAO = Mockito.mock(HotelEmployeeDAO.class);
+		HotelEmployeeMailService emailService = Mockito.mock(HotelEmployeeMailService.class);
+
+		employeeService.setHotelEmployeeDAO(hotelEmployeeDAO);
+		employeeService.setHotelEmployeeEmailService(emailService);
+		
+		HotelEmployee employee = new HotelEmployee();
+
+		employeeService.updateEmployeeEmailAddress(employee, "a@a.com");
+		InOrder inOrder = 	Mockito.inOrder(emailService,hotelEmployeeDAO);
+		inOrder.verify(hotelEmployeeDAO).updateEmployee(Mockito.eq(employee));
+		inOrder.verify(emailService).sendEmail(Mockito.eq(employee));
+		
+	}
+	
 	
 }

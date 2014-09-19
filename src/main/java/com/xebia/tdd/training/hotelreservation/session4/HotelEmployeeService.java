@@ -11,6 +11,9 @@ public class HotelEmployeeService {
 	@Autowired
 	HotelEmployeeDAO hotelEmployeeDAO;
 	
+	@Autowired
+	HotelEmployeeMailService mailService;
+	
 	public void saveEmployee(HotelEmployee employee){
 		employee.setModifiedDate(new Date());
 		employee.setSerialId(++counter);
@@ -23,6 +26,11 @@ public class HotelEmployeeService {
 		hotelEmployeeDAO.updateEmployee(employee);
 	}
 	
+	public void updateEmployeeEmailAddress(HotelEmployee employee , String emailAddress){
+		hotelEmployeeDAO.updateEmployee(employee);
+		mailService.sendEmail(employee);
+	}
+	
 	public Integer getCounter() {
 		return counter;
 	}
@@ -33,6 +41,12 @@ public class HotelEmployeeService {
 
 	public void setHotelEmployeeDAO(HotelEmployeeDAO hotelEmployeeDAO2) {
 		hotelEmployeeDAO = hotelEmployeeDAO2;
+	}
+
+
+	public void setHotelEmployeeEmailService(
+			HotelEmployeeMailService emailService) {
+				mailService = emailService;
 	}
 	
 }
