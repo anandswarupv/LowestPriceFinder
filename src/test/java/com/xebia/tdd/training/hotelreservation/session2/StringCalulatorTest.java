@@ -28,7 +28,7 @@ public class StringCalulatorTest {
 	public void shouldThrowExceptionIfNonNumericCharactersAreUsed(){
 		StringCalculator stringCalculator = new StringCalculator();
 		String numbersString = "1,D";
-		int result = stringCalculator.add(numbersString);
+		stringCalculator.add(numbersString);
 		
 	}
 	
@@ -36,7 +36,7 @@ public class StringCalulatorTest {
 	public void shouldThrowExceptionIfIncorrectDelimeterisUsed(){
 		StringCalculator stringCalculator = new StringCalculator();
 		String numbersString = "1;D";
-		int result = stringCalculator.add(numbersString);
+		stringCalculator.add(numbersString);
 		
 	}
 	
