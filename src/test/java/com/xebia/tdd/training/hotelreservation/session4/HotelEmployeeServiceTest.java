@@ -13,7 +13,6 @@ public class HotelEmployeeServiceTest {
 	@Test
 	public void shouldSearchEmployeeCorrectly() {
 		HotelEmployeeService employeeService = new HotelEmployeeService();
-		employeeService.setCounter(1);
 		HotelEmployeeDAO hotelEmployeeDAO = Mockito.mock(HotelEmployeeDAO.class);
 		employeeService.setHotelEmployeeDAO(hotelEmployeeDAO);
 		EmployeeSearchParameters searchParameters = new EmployeeSearchParameters();
@@ -30,21 +29,20 @@ public class HotelEmployeeServiceTest {
 	@Test
 	public void shouldSaveEmployeeCorrectly() throws Exception {
 		HotelEmployeeService employeeService = new HotelEmployeeService();
-		employeeService.setCounter(1);
 		HotelEmployeeDAO hotelEmployeeDAO = Mockito.mock(HotelEmployeeDAO.class);
 		employeeService.setHotelEmployeeDAO(hotelEmployeeDAO);
-		employeeService.saveEmployee(new HotelEmployee());
+		employeeService.updateEmployee(new HotelEmployee());
 
 		ArgumentMatcher<HotelEmployee> argumentMatcher = new ArgumentMatcher<HotelEmployee>() {
 			@Override
 			public boolean matches(Object argument) {
 				HotelEmployee employee = (HotelEmployee) argument;
-				Assert.assertThat(2, Matchers.is(employee.getSerialid()));
+				Assert.assertThat(1, Matchers.is(employee.getSerialid()));
 				return true;
 			}
 		};
 
-		Mockito.verify(hotelEmployeeDAO, Mockito.times(1)).saveEmployee(
+		Mockito.verify(hotelEmployeeDAO, Mockito.times(1)).updateEmployee(
 				Mockito.argThat(argumentMatcher));
 		Mockito.verifyNoMoreInteractions(hotelEmployeeDAO);
 	}
