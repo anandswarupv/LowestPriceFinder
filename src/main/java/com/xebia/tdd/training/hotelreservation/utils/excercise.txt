@@ -1,0 +1,6 @@
+CalendarUtil.java
+
+1. The Hotel App take a list of dates as input in the form of a string "30Sep2014,1Oct2014". 
+   Lets create a utility class that extracts a List<Date> from the string "30Sep2014,1Oct2014"
+2. Hotel rates differ for Weekdays and Weekends.
+   Lets add a method to the utility class to check if the given date is a weekend or not
