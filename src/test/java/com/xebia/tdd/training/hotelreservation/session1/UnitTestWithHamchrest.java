@@ -1,9 +1,7 @@
 package com.xebia.tdd.training.hotelreservation.session1;
 
-import static java.util.Arrays.asList;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
-import static org.hamcrest.Matchers.isIn;
 import static org.junit.Assert.assertThat;
 
 import org.junit.Test;
