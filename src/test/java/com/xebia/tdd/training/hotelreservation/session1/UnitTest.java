@@ -1,13 +1,11 @@
 package com.xebia.tdd.training.hotelreservation.session1;
 
-import static org.hamcrest.Matchers.equalTo;
-import static org.hamcrest.Matchers.is;
-import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
 public class UnitTest {
+
 
 	// Tests for Sum
 	@Test
@@ -46,19 +44,5 @@ public class UnitTest {
 		assertTrue(10 == sum);
 	}
 
-
-	@Test
-	public void shouldSumNegativeIntegersCorrectly() throws Exception {
-		// Setup
-		Unit unit = new Unit();
-		Integer a = -10;
-		Integer b = null;
-
-		// Execution
-		Integer sum = unit.sum(a, b);
-
-		// Verification
-		assertThat(-10, is(equalTo(sum)));
-	}
 
 }

@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class HotelEmployee {
 
-	private Integer serialid;
+	private Integer serialid = 0;
 	private Date modifiedDate;
 
 	public void setSerialId(Integer serialid) {

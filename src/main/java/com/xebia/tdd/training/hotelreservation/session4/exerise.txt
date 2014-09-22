@@ -1,0 +1,18 @@
+Given
+-----------------------------
+- A HotelEmployeeService which exposes methods to perform various operations for a HotelEmployee.
+- HotelEmployeeService delegates all the database related work to HotelEmployeeDAO
+- HotelEmployeeService delegates all the email related work to HotelEmployeeMailService
+
+Requirements
+------------------------------
+
+1) As a user I want to find all the HotelEmployee that meets a specific search criteria. The search criteria can take
+Employee Name, Employee Age and Employee Country.
+
+2) As a user I want to find save HotelEmployee in the database.
+
+3) As a user I want to update the HotelEmployee and increment its serial id while updating the employee
+
+4) As a user I want to update Employee EmailAddress which should update the email address in the database and send 
+and email to the employee's new address. Email sending should happen after the database has been updated.

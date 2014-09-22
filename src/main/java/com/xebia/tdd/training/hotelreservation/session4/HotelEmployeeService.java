@@ -1,13 +1,10 @@
 package com.xebia.tdd.training.hotelreservation.session4;
 
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class HotelEmployeeService {
-
-	private Integer counter = 0;
 
 	@Autowired
 	HotelEmployeeDAO hotelEmployeeDAO;
@@ -23,29 +20,19 @@ public class HotelEmployeeService {
 				searchParameters.getEmployeeCountry());
 	}
 
-	public void saveEmployee(HotelEmployee employee) {
-		employee.setModifiedDate(new Date());
-		employee.setSerialId(++counter);
-
-		hotelEmployeeDAO.saveEmployee(employee);
+	public boolean saveEmployee(HotelEmployee employee) {
+		return hotelEmployeeDAO.saveEmployee(employee);
 	}
-
-	public void updateEmployee(HotelEmployee employee) {
-		hotelEmployeeDAO.updateEmployee(employee);
+	
+	public boolean updateEmployee(HotelEmployee employee) {
+		employee.setSerialId(employee.getSerialid()+1);
+		return hotelEmployeeDAO.updateEmployee(employee);
 	}
 
 	public void updateEmployeeEmailAddress(HotelEmployee employee,
 			String emailAddress) {
 		hotelEmployeeDAO.updateEmployee(employee);
 		mailService.sendEmail(employee);
-	}
-
-	public Integer getCounter() {
-		return counter;
-	}
-
-	public void setCounter(Integer counter) {
-		this.counter = counter;
 	}
 
 	public void setHotelEmployeeDAO(HotelEmployeeDAO hotelEmployeeDAO2) {

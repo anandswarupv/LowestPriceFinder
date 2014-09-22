@@ -37,7 +37,6 @@ public class StringCalulatorTest {
 		StringCalculator stringCalculator = new StringCalculator();
 		String numbersString = "1;D";
 		stringCalculator.add(numbersString);
-		
 	}
 	
 }
