@@ -5,13 +5,13 @@ import java.util.Map;
 
 public class CacheService {
 
-	private boolean returnNullForBlank = true;
+	private boolean returnBlankForNull = false;
 	private Map<String, String> keyValueMap = new HashMap<String, String>();
 
 	public String get(String key) {
 		String value = keyValueMap.get(key);
 		if (null == value) {
-			if (returnNullForBlank) {
+			if (!returnBlankForNull) {
 				value = null;
 			} else {
 				value = "";
@@ -21,11 +21,7 @@ public class CacheService {
 		return value;
 	}
 
-	public boolean getReturnNullForBlank() {
-		return returnNullForBlank;
-	}
-
-	public void setReturnNullForBlank(boolean returnNullForBlank) {
-		this.returnNullForBlank = returnNullForBlank;
+	public void setReturnBlankForNull(boolean returnNullForBlank) {
+		this.returnBlankForNull = returnNullForBlank;
 	}
 }

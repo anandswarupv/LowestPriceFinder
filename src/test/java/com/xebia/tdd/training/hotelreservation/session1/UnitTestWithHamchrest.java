@@ -1,9 +1,12 @@
 package com.xebia.tdd.training.hotelreservation.session1;
 
 import static org.hamcrest.Matchers.equalTo;
-import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 
+import java.util.Arrays;
+import java.util.List;
+
+import org.junit.Assert;
 import org.junit.Test;
 
 public class UnitTestWithHamchrest {
@@ -19,7 +22,22 @@ public class UnitTestWithHamchrest {
 		Integer sum = unit.sum(a, b);
 
 		// Verification
-		assertThat(-10, is(equalTo(sum)));
+		assertThat(-10, equalTo(sum));
 	}
 
+	
+	@Test
+	public void shouldContainTheString(){
+		List<String> remoteList = getRemoteList();
+
+		Assert.assertTrue(remoteList.contains("Scala"));
+		Assert.assertTrue(remoteList.contains("Java"));
+		
+//		Assert.assertThat(remoteList, contains("Scala","Java"));
+	}
+
+
+	private List<String> getRemoteList() {
+		return Arrays.asList("Scala","Java");
+	}
 }

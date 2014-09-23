@@ -1,16 +1,20 @@
 package com.xebia.tdd.training.hotelreservation.session1;
 
+import java.io.BufferedInputStream;
+import java.io.File;
+
 import org.junit.Test;
 
+@SuppressWarnings("unused")
 public class UnitTestEnvDependent {
 
 	@Test
 	public void shouldParseFileCorrectly() {
-		// new File("/home/pratik/abc.xml");
+		File file = new File("/home/pratik/abc.xml");
 
-		/*BufferedInputStream bufferedInputStream = new BufferedInputStream(
+		BufferedInputStream bufferedInputStream = new BufferedInputStream(
 				UnitTestEnvDependent.class.getClassLoader()
-						.getResourceAsStream("abc.xml"));*/
+						.getResourceAsStream("abc.xml"));
 
 	}
 

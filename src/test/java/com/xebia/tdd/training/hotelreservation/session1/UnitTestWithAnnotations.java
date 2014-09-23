@@ -23,7 +23,7 @@ public class UnitTestWithAnnotations {
 
 	@Before
 	public void setup() {
-
+		// Preparation of common data / dependencies across tests.
 	}
 
 	@Test

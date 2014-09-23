@@ -7,6 +7,7 @@ public class UnitTestMoreThanOneAssertion {
 
 	@Test
 	public void testUnitClass(){
+		
 		Unit unit = new Unit();
 		Integer sum = unit.sum(10, 12);
 		
