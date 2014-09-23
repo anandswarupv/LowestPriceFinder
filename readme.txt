@@ -11,7 +11,6 @@ Pre Requisites
 
 
 
-
 Steps to run the application
 -----------------------------
 - Build the project using : mvn clean install
