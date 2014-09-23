@@ -1,6 +1,5 @@
 package com.xebia.tdd.training.hotelreservation.services;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -16,11 +15,10 @@ import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import com.xebia.tdd.training.hotelreservation.dao.HotelDao;
-import com.xebia.tdd.training.hotelreservation.model.Address;
 import com.xebia.tdd.training.hotelreservation.model.CustomerType;
 import com.xebia.tdd.training.hotelreservation.model.Hotel;
-import com.xebia.tdd.training.hotelreservation.model.Rates;
 import com.xebia.tdd.training.hotelreservation.model.SearchResult;
+import com.xebia.tdd.training.hotelreservation.utils.ObjectMother;
 
 @RunWith(MockitoJUnitRunner.class)
 public class LowestPriceFinderServiceTest {
@@ -31,10 +29,12 @@ public class LowestPriceFinderServiceTest {
     @InjectMocks
     LowestPriceFinderService lowestPriceFinderService = new LowestPriceFinderService();
 
+    List<Hotel> testHotels;
+
     @Before
     public void setUp() throws Exception {
-        List<Hotel> hotels = getTestHotels();
-        Mockito.when(hotelDao.getHotels()).thenReturn(hotels);
+        testHotels = ObjectMother.aFewHotels();
+        Mockito.when(hotelDao.getHotels()).thenReturn(testHotels);
     }
 
     @SuppressWarnings("deprecation")
@@ -51,21 +51,11 @@ public class LowestPriceFinderServiceTest {
         Assert.assertEquals(expectedHotelName, actualHotelName);
     }
 
-    private List<Hotel> getTestHotels() {
-        Address address1 = new Address("1111 1st St", "Santa Monica", "CA", "90403", "USA");
-        Rates rates1 = new Rates(new BigDecimal(110), new BigDecimal(80), new BigDecimal(90), new BigDecimal(80));
-        Hotel hotel1 = new Hotel(1001L, "Lakewood HOTELS", address1, 3, rates1);
-        Address address2 = new Address("1112 1st St", "Santa Monica", "CA", "90403", "USA");
-        Rates rates2 = new Rates(new BigDecimal(160), new BigDecimal(110), new BigDecimal(60), new BigDecimal(50));
-        Hotel hotel2 = new Hotel(1002L, "Bridgewood HOTELS", address2, 4, rates2);
-        Address address3 = new Address("1113 1st St", "Santa Monica", "CA", "90403", "USA");
-        Rates rates3 = new Rates(new BigDecimal(220), new BigDecimal(110), new BigDecimal(150), new BigDecimal(40));
-        Hotel hotel3 = new Hotel(1003L, "Ridgewood HOTELS", address3, 5, rates3);
-        List<Hotel> hotels = new ArrayList<Hotel>();
-        hotels.add(hotel1);
-        hotels.add(hotel2);
-        hotels.add(hotel3);
-        return hotels;
+    @Test
+    public void testGetHotels() throws Exception {
+        List<Hotel> actualHotels = lowestPriceFinderService.getHotels();
+        Assert.assertEquals(testHotels, actualHotels);
+        Mockito.verify(hotelDao).getHotels();
     }
 
 }
