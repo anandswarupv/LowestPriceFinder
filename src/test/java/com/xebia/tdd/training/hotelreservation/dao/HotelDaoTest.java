@@ -11,9 +11,9 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
 
-import com.xebia.tdd.training.hotelreservation.model.Address;
 import com.xebia.tdd.training.hotelreservation.model.Hotel;
 import com.xebia.tdd.training.hotelreservation.utils.ConnectionManager;
+import com.xebia.tdd.training.hotelreservation.utils.HotelBuilder;
 
 public class HotelDaoTest extends BaseDaoTest {
 
@@ -22,20 +22,9 @@ public class HotelDaoTest extends BaseDaoTest {
     private static AddressDao addressDao = Mockito.mock(AddressDao.class);
     private static ConnectionManager connectionManager = Mockito.mock(ConnectionManager.class);
 
-    private static final String Address1_AddressLine = "1111 1st St";
-    private static final String Address1_City = "Santa Monica";
-    private static final String Address1_State = "CA";
-    private static final String Address1_Zip = "90403";
-    private static final String Address1_Country = "USA";
-
-    private static final String Hotel1_Name = "Lakewood HOTELS";
     private static final Long Hotel1_Id = 1001L;
-    private static final int Hotel1_Rating = 3;
 
-    private static final String Rates1_WeekendRates = "90";
-    private static final String Rates1_WeekendRatesForRewardsMembers = "80";
-    private static final String Rates1_WeekdayRates = "110";
-    private static final String Rates1_WeekdayRatesForRewardsMembers = "80";
+    private Hotel testHotel;
 
     @Before
     public void setup() throws Exception {
@@ -53,20 +42,14 @@ public class HotelDaoTest extends BaseDaoTest {
         statement.close();
     }
 
-    private void createMocks() {
-        Address address = new Address(Address1_AddressLine, Address1_City, Address1_State, Address1_Zip, Address1_Country);
-        Mockito.when(connectionManager.getConnection()).thenReturn(connection);
-        Mockito.when(addressDao.getAddressForHotelId(1001L)).thenReturn(address);
-    }
-
     @Test
     public void testGetHotel() throws Exception {
-        Hotel hotel = hotelDao.getHotel((Long) 1001L);
-        Assert.assertEquals(Hotel1_Id, hotel.getId());
-        Assert.assertEquals(Hotel1_Name, hotel.getName());
-        Assert.assertEquals(Hotel1_Rating, hotel.getRating());
-        Assert.assertEquals(Address1_AddressLine, hotel.getAddress().getAddressLine());
-        Assert.assertEquals(Address1_Zip, hotel.getAddress().getZip());
+        Hotel hotel = hotelDao.getHotel(Hotel1_Id);
+        Assert.assertEquals(testHotel.getId(), hotel.getId());
+        Assert.assertEquals(testHotel.getName(), hotel.getName());
+        Assert.assertEquals(testHotel.getRating(), hotel.getRating());
+        Assert.assertEquals(testHotel.getAddress().getAddressLine(), hotel.getAddress().getAddressLine());
+        Assert.assertEquals(testHotel.getAddress().getZip(), hotel.getAddress().getZip());
     }
 
     @Test
@@ -75,46 +58,53 @@ public class HotelDaoTest extends BaseDaoTest {
         Assert.assertEquals(3, hotels.size());
     }
 
-    private void createTestData() throws SQLException {
-        initializeHotel();
-        initializeAddress();
-        initializeRates();
-    }
-
-    private void initializeRates() throws SQLException {
-        Statement statement = connection.createStatement();
-        statement.execute("INSERT INTO RATES VALUES (" + Hotel1_Id + "," + Rates1_WeekdayRates + "," +
-                Rates1_WeekdayRatesForRewardsMembers + "," + Rates1_WeekendRates + "," +
-                Rates1_WeekendRatesForRewardsMembers + ")");
-        statement.close();
-    }
-
-    private void initializeAddress() throws SQLException {
-        Statement statement = connection.createStatement();
-        statement.execute("INSERT INTO ADDRESS VALUES (" + Hotel1_Id + ", '"
-                + Address1_AddressLine + "','" + Address1_City + "','" + Address1_State + "','"
-                + Address1_Zip + "','" + Address1_Country + "')");
-        statement.close();
-    }
-
-    private void initializeHotel() throws SQLException {
-        Statement statement = connection.createStatement();
-        statement.execute("INSERT INTO HOTEL VALUES (" + Hotel1_Id + ", '" + Hotel1_Name +
-                "'," + Hotel1_Rating + " )");
-        statement.execute("INSERT INTO HOTEL VALUES (1002, 'Bridgewood HOTELS', 4)");
-        statement.execute("INSERT INTO HOTEL VALUES (1003, 'Ridgewood HOTELS', 5)");
-        statement.close();
-    }
-
     @Test
     public void testGetHotelNameUsingStoredProcedure() throws Exception {
         String hotelName = hotelDao.getHotelNameUsingStoredProcedure((Long) 1001L);
-        Assert.assertEquals(Hotel1_Name, hotelName);
+        Assert.assertEquals(testHotel.getName(), hotelName);
     }
 
     @Test
     public void testGetHotelUsingStoredProcedure() throws Exception {
         Hotel hotel = hotelDao.getHotelUsingStoredProcedure((Long) 1001L);
-        Assert.assertEquals(Hotel1_Name, hotel.getName());
+        Assert.assertEquals(testHotel.getName(), hotel.getName());
+    }
+
+    private void createMocks() {
+        Mockito.when(connectionManager.getConnection()).thenReturn(connection);
+        Mockito.when(addressDao.getAddressForHotelId(Hotel1_Id)).thenReturn(testHotel.getAddress());
+    }
+
+    private void createTestData() throws SQLException {
+        testHotel = HotelBuilder.aHotel().withId(Hotel1_Id).build();
+        initializeHotel(testHotel);
+        initializeAddress(testHotel);
+        initializeRates(testHotel);
+    }
+
+    private void initializeRates(Hotel testHotel) throws SQLException {
+        Statement statement = connection.createStatement();
+        statement.execute("INSERT INTO RATES VALUES (" + testHotel.getId() + "," + testHotel.getRates().getWeekdayRates() + "," +
+                testHotel.getRates().getWeekdayRatesForRewardsMembers() + "," + testHotel.getRates().getWeekendRates() + "," +
+                testHotel.getRates().getWeekendRatesForRewardsMembers() + ")");
+        statement.close();
+    }
+
+    private void initializeAddress(Hotel testHotel) throws SQLException {
+        Statement statement = connection.createStatement();
+        statement.execute("INSERT INTO ADDRESS VALUES (" + testHotel.getId() + ", '"
+                + testHotel.getAddress().getAddressLine() + "','" + testHotel.getAddress().getCity() + "','" + testHotel.getAddress().getState()
+                + "','"
+                + testHotel.getAddress().getZip() + "','" + testHotel.getAddress().getCountry() + "')");
+        statement.close();
+    }
+
+    private void initializeHotel(Hotel testHotel) throws SQLException {
+        Statement statement = connection.createStatement();
+        statement.execute("INSERT INTO HOTEL VALUES (" + testHotel.getId() + ", '" + testHotel.getName() +
+                "'," + testHotel.getRating() + " )");
+        statement.execute("INSERT INTO HOTEL VALUES (1002, 'Bridgewood HOTELS', 4)");
+        statement.execute("INSERT INTO HOTEL VALUES (1003, 'Ridgewood HOTELS', 5)");
+        statement.close();
     }
 }
