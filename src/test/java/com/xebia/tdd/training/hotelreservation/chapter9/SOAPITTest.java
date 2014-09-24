@@ -13,7 +13,7 @@ import org.junit.Test;
 
 import com.xebia.tdd.training.hotelreservation.soap.HotelService;
 
-public class HotelServiceImplIT extends BaseIntegrationTest{
+public class SOAPITTest extends BaseSmokeTest{
 
 	@Before
 	public void setup() throws SQLException {

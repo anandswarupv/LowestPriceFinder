@@ -30,16 +30,18 @@
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 		
+	<servlet>
+        <servlet-name>HotelService</servlet-name>
+        <servlet-class>com.sun.xml.ws.transport.http.servlet.WSServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+	
 	<servlet-mapping>
 		<servlet-name>appServlet</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
 
-    <servlet>
-        <servlet-name>HotelService</servlet-name>
-        <servlet-class>com.sun.xml.ws.transport.http.servlet.WSServlet</servlet-class>
-        <load-on-startup>1</load-on-startup>
-    </servlet>
+    
     <servlet-mapping>
         <servlet-name>HotelService</servlet-name>
         <url-pattern>/soap</url-pattern>

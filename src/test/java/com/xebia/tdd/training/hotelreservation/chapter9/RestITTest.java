@@ -16,7 +16,7 @@ import com.jayway.restassured.path.json.JsonPath;
 import com.jayway.restassured.response.Response;
 import com.xebia.tdd.training.hotelreservation.dao.BaseDaoTest;
 
-public class RestAssuredIT extends BaseDaoTest{
+public class RestITTest extends BaseDaoTest{
     
 	@Before
 	public void setup() throws SQLException {
