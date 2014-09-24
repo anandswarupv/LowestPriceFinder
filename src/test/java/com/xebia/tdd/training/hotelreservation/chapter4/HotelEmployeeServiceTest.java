@@ -1,4 +1,4 @@
-package com.xebia.tdd.training.hotelreservation.chapter3;
+package com.xebia.tdd.training.hotelreservation.chapter4;
 
 import org.hamcrest.Matchers;
 import org.junit.Assert;
@@ -8,11 +8,11 @@ import org.mockito.ArgumentMatcher;
 import org.mockito.InOrder;
 import org.mockito.Mockito;
 
-import com.xebia.tdd.training.hotelreservation.chapter3.EmployeeSearchCriteria;
-import com.xebia.tdd.training.hotelreservation.chapter3.HotelEmployee;
-import com.xebia.tdd.training.hotelreservation.chapter3.HotelEmployeeDAO;
-import com.xebia.tdd.training.hotelreservation.chapter3.HotelEmployeeMailService;
-import com.xebia.tdd.training.hotelreservation.chapter3.HotelEmployeeService;
+import com.xebia.tdd.training.hotelreservation.chapter4.EmployeeSearchCriteria;
+import com.xebia.tdd.training.hotelreservation.chapter4.HotelEmployee;
+import com.xebia.tdd.training.hotelreservation.chapter4.HotelEmployeeDAO;
+import com.xebia.tdd.training.hotelreservation.chapter4.HotelEmployeeMailService;
+import com.xebia.tdd.training.hotelreservation.chapter4.HotelEmployeeService;
 
 public class HotelEmployeeServiceTest {
 

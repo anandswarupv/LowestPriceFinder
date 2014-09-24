@@ -1,4 +1,4 @@
-package com.xebia.tdd.training.hotelreservation.chapter3;
+package com.xebia.tdd.training.hotelreservation.chapter4;
 
 public class HotelEmployeeMailService {
 
