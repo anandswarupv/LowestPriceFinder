@@ -3,22 +3,16 @@ package com.xebia.tdd.training.hotelreservation.chapter9;
 import static org.junit.Assert.assertEquals;
 
 import java.net.URL;
-import java.sql.SQLException;
 
 import javax.xml.namespace.QName;
 import javax.xml.ws.Service;
 
-import org.junit.Before;
 import org.junit.Test;
 
 import com.xebia.tdd.training.hotelreservation.soap.HotelService;
 
-public class SOAPITTest extends BaseSmokeTest{
+public class SOAPIT extends BaseSmokeTest{
 
-	@Before
-	public void setup() throws SQLException {
-		initalizeBaseDataSet();
-	}
 	
     @Test
     public void testGetHotelName() throws Exception {

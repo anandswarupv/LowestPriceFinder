@@ -11,7 +11,7 @@ import org.springframework.test.context.web.WebAppConfiguration;
 import com.xebia.tdd.training.hotelreservation.services.LowestPriceFinderService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration("classpath:servlet-context.xml")
+@ContextConfiguration("classpath:test-servlet-context.xml")
 @WebAppConfiguration
 public class SpringITTest {
 

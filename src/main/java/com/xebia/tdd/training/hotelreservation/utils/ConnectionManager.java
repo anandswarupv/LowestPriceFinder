@@ -3,8 +3,12 @@ package com.xebia.tdd.training.hotelreservation.utils;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
+import javax.annotation.PostConstruct;
+
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.stereotype.Component;
+
+import com.xebia.tdd.training.hotelreservation.dao.DBUtils;
 
 @Component
 public class ConnectionManager implements DisposableBean {
@@ -16,13 +20,15 @@ public class ConnectionManager implements DisposableBean {
 
     private static Connection connection;
 
+    @PostConstruct
     private void initConnection() {
         try {
-            System.out.println("Inside Connection Manager");
             Class.forName(driver).newInstance();
             connection = DriverManager.getConnection(url, userName, password);
             connection.setAutoCommit(true);
-            System.out.println("Connection Established");
+            DBUtils dbUtils = new DBUtils(connection);
+            dbUtils.init();
+            dbUtils.populateDefaultData();
         } catch (Exception e) {
             System.out.println("Unable to establish the connection "
                     + e.getMessage());
@@ -30,9 +36,6 @@ public class ConnectionManager implements DisposableBean {
     }
 
     public Connection getConnection() {
-        if (connection == null) {
-            initConnection();
-        }
         return connection;
     }
 
