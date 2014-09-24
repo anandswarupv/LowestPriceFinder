@@ -1,6 +1,6 @@
 package com.xebia.tdd.training.hotelreservation.session1;
 
-import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.assertThat;
 
 import java.util.Arrays;
@@ -22,6 +22,7 @@ public class UnitTestWithHamchrest {
 		Integer sum = unit.sum(a, b);
 
 		// Verification
+		// Assert using Hamchrest
 		assertThat(-10, equalTo(sum));
 	}
 
@@ -33,7 +34,8 @@ public class UnitTestWithHamchrest {
 		Assert.assertTrue(remoteList.contains("Scala"));
 		Assert.assertTrue(remoteList.contains("Java"));
 		
-//		Assert.assertThat(remoteList, contains("Scala","Java"));
+		// Assert using Hamchrest
+		Assert.assertThat(remoteList, contains("Scala","Java"));
 	}
 
 

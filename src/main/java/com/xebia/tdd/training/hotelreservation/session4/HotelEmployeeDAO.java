@@ -9,11 +9,8 @@ public class HotelEmployeeDAO {
 		return true;
 	}
 
-	public boolean updateEmployee(HotelEmployee employee) {
-		if (employee.getSerialid() == 0)
-			throw new IllegalArgumentException("Object should have an Id");
-		// update employee in database
-		return true;
+	public boolean updateEmployee(HotelEmployee employee) throws Exception {
+			throw new Exception("Error while saving object to database");
 	}
 
 	public List<HotelEmployee> searchEmployee(String employeeName,

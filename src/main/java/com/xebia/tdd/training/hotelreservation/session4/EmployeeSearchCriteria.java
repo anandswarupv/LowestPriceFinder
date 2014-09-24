@@ -1,6 +1,6 @@
 package com.xebia.tdd.training.hotelreservation.session4;
 
-public class EmployeeSearchParameters {
+public class EmployeeSearchCriteria {
 
 	private String employeeName;
 	private Integer employeeAge;

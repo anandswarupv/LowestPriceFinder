@@ -13,24 +13,20 @@ public class HotelEmployeeService {
 	HotelEmployeeMailService mailService;
 
 	public List<HotelEmployee> searchEmployee(
-			EmployeeSearchParameters searchParameters) {
+			EmployeeSearchCriteria searchCriteria) {
 		return hotelEmployeeDAO.searchEmployee(
-				searchParameters.getEmployeeName(),
-				searchParameters.getEmployeeAge(),
-				searchParameters.getEmployeeCountry());
+				searchCriteria.getEmployeeName(),
+				searchCriteria.getEmployeeAge(),
+				searchCriteria.getEmployeeCountry());
 	}
 
-	public boolean saveEmployee(HotelEmployee employee) {
-		return hotelEmployeeDAO.saveEmployee(employee);
-	}
-	
-	public boolean updateEmployee(HotelEmployee employee) {
-		employee.setSerialId(employee.getSerialid()+1);
+	public boolean updateEmployee(HotelEmployee employee) throws Exception {
+		employee.setSerialId(employee.getSerialid() + 1);
 		return hotelEmployeeDAO.updateEmployee(employee);
 	}
 
 	public void updateEmployeeEmailAddress(HotelEmployee employee,
-			String emailAddress) {
+			String emailAddress) throws Exception {
 		hotelEmployeeDAO.updateEmployee(employee);
 		mailService.sendEmail(employee);
 	}
