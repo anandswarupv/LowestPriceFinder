@@ -1,4 +1,4 @@
-package com.xebia.tdd.training.hotelreservation.session4;
+package com.xebia.tdd.training.hotelreservation.chapter3;
 
 import java.util.Date;
 

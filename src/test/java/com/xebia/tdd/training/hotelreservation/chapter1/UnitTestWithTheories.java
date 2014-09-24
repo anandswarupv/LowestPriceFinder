@@ -1,4 +1,4 @@
-package com.xebia.tdd.training.hotelreservation.session1;
+package com.xebia.tdd.training.hotelreservation.chapter1;
 
 import static org.junit.Assert.assertTrue;
 
@@ -6,6 +6,8 @@ import org.junit.experimental.theories.DataPoints;
 import org.junit.experimental.theories.Theories;
 import org.junit.experimental.theories.Theory;
 import org.junit.runner.RunWith;
+
+import com.xebia.tdd.training.hotelreservation.chapter1.Unit;
 
 @RunWith(Theories.class)
 public class UnitTestWithTheories {

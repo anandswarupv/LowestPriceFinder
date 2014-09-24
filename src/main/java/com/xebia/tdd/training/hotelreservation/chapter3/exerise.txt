@@ -7,14 +7,14 @@ Given
 Requirements
 ------------------------------
 
-1) As a user I want to find all the HotelEmployee that meets a specific search criteria. The search criteria can take
+1) As a Product Owner I want to find all the HotelEmployee that meets a specific search criteria. The search criteria can have
 Employee Name, Employee Age and Employee Country.
 
-2) As a user I want to update the HotelEmployee and increment its serial id while updating the employee
+2) As a Product Owner I want to update the HotelEmployee and increment its serial id while updating the employee
 
-3) As a user I want to get an Exception if any Exception occurs while saving the employee in database.
+3) As a Product Owner I want to get an Exception if any Exception occurs while saving the employee in database.
 
-4) As a user I want to update Employee EmailAddress which should update the email address in the database and send 
+4) As a Product Owner I want to update Employee EmailAddress which should update the email address in the database and send 
 and email to the employee's new address. Email sending should happen after the database has been updated.
 
-5) 
+5)  

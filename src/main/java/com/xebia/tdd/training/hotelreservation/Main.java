@@ -7,9 +7,9 @@ import java.util.List;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.xebia.tdd.training.hotelreservation.chapter2.CalendarUtil;
 import com.xebia.tdd.training.hotelreservation.exceptions.InvalidArgumentsException;
 import com.xebia.tdd.training.hotelreservation.model.CustomerType;
-import com.xebia.tdd.training.hotelreservation.session2.CalendarUtil;
 import com.xebia.tdd.training.hotelreservation.utils.Terminal;
 
 public class Main {

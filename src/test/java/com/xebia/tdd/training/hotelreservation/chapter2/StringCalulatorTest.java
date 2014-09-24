@@ -1,8 +1,10 @@
-package com.xebia.tdd.training.hotelreservation.session2;
+package com.xebia.tdd.training.hotelreservation.chapter2;
 
 import org.hamcrest.Matchers;
 import org.junit.Assert;
 import org.junit.Test;
+
+import com.xebia.tdd.training.hotelreservation.chapter2.StringCalculator;
 
 public class StringCalulatorTest {
 

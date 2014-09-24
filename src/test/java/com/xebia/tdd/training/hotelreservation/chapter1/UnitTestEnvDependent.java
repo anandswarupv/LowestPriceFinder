@@ -1,4 +1,4 @@
-package com.xebia.tdd.training.hotelreservation.session1;
+package com.xebia.tdd.training.hotelreservation.chapter1;
 
 import java.io.BufferedInputStream;
 import java.io.File;

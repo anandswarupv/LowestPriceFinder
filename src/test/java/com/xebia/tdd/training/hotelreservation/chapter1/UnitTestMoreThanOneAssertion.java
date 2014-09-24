@@ -1,7 +1,9 @@
-package com.xebia.tdd.training.hotelreservation.session1;
+package com.xebia.tdd.training.hotelreservation.chapter1;
 
 import org.junit.Assert;
 import org.junit.Test;
+
+import com.xebia.tdd.training.hotelreservation.chapter1.Unit;
 
 public class UnitTestMoreThanOneAssertion {
 

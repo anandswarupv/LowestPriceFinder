@@ -1,4 +1,4 @@
-package com.xebia.tdd.training.hotelreservation.session2;
+package com.xebia.tdd.training.hotelreservation.chapter2;
 
 import java.util.Arrays;
 import java.util.Calendar;
@@ -11,7 +11,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 
-import com.xebia.tdd.training.hotelreservation.session2.CalendarUtil;
+import com.xebia.tdd.training.hotelreservation.chapter2.CalendarUtil;
 
 @RunWith(Parameterized.class)
 public class ParameterizedCalendarUtilTest {

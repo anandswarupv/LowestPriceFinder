@@ -14,13 +14,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.xebia.tdd.training.hotelreservation.chapter2.CalendarUtil;
 import com.xebia.tdd.training.hotelreservation.model.Address;
 import com.xebia.tdd.training.hotelreservation.model.CustomerType;
 import com.xebia.tdd.training.hotelreservation.model.Hotel;
 import com.xebia.tdd.training.hotelreservation.model.Rates;
 import com.xebia.tdd.training.hotelreservation.model.SearchResult;
 import com.xebia.tdd.training.hotelreservation.services.LowestPriceFinderService;
-import com.xebia.tdd.training.hotelreservation.session2.CalendarUtil;
 import com.xebia.tdd.training.hotelreservation.utils.RESTConstants;
 
 @Controller

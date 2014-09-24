@@ -5,10 +5,10 @@ import java.util.Date;
 import java.util.List;
 import java.util.concurrent.Callable;
 
+import com.xebia.tdd.training.hotelreservation.chapter2.CalendarUtil;
 import com.xebia.tdd.training.hotelreservation.model.Hotel;
 import com.xebia.tdd.training.hotelreservation.model.Rates;
 import com.xebia.tdd.training.hotelreservation.model.SearchResult;
-import com.xebia.tdd.training.hotelreservation.session2.CalendarUtil;
 
 /**
  * <p>

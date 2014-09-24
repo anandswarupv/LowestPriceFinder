@@ -1,4 +1,4 @@
-package com.xebia.tdd.training.hotelreservation.session1;
+package com.xebia.tdd.training.hotelreservation.chapter1;
 
 import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.assertThat;
@@ -8,6 +8,8 @@ import java.util.List;
 
 import org.junit.Assert;
 import org.junit.Test;
+
+import com.xebia.tdd.training.hotelreservation.chapter1.Unit;
 
 public class UnitTestWithHamchrest {
 

@@ -1,4 +1,4 @@
-package com.xebia.tdd.training.hotelreservation.session1;
+package com.xebia.tdd.training.hotelreservation.chapter1;
 
 import static org.junit.Assert.assertTrue;
 
@@ -8,6 +8,8 @@ import java.util.Collection;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
+
+import com.xebia.tdd.training.hotelreservation.chapter1.Unit;
 
 @RunWith(Parameterized.class)
 public class UnitTestWithParameters {

@@ -1,4 +1,4 @@
-package com.xebia.tdd.training.hotelreservation.session1;
+package com.xebia.tdd.training.hotelreservation.chapter1;
 
 import static org.junit.Assert.assertTrue;
 
@@ -10,6 +10,8 @@ import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
+
+import com.xebia.tdd.training.hotelreservation.chapter1.Unit;
 
 @RunWith(JUnit4.class)
 public class UnitTestWithAnnotations {

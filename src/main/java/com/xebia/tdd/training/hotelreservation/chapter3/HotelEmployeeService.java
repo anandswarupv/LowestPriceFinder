@@ -1,4 +1,4 @@
-package com.xebia.tdd.training.hotelreservation.session4;
+package com.xebia.tdd.training.hotelreservation.chapter3;
 
 import java.util.List;
 
@@ -12,12 +12,9 @@ public class HotelEmployeeService {
 	@Autowired
 	HotelEmployeeMailService mailService;
 
-	public List<HotelEmployee> searchEmployee(
-			EmployeeSearchCriteria searchCriteria) {
-		return hotelEmployeeDAO.searchEmployee(
-				searchCriteria.getEmployeeName(),
-				searchCriteria.getEmployeeAge(),
-				searchCriteria.getEmployeeCountry());
+	public List<HotelEmployee> searchEmployee(EmployeeSearchCriteria searchCriteria) {
+		return hotelEmployeeDAO.searchEmployee(searchCriteria.getEmployeeName(),
+				searchCriteria.getEmployeeAge(),searchCriteria.getEmployeeCountry());
 	}
 
 	public boolean updateEmployee(HotelEmployee employee) throws Exception {
@@ -25,8 +22,8 @@ public class HotelEmployeeService {
 		return hotelEmployeeDAO.updateEmployee(employee);
 	}
 
-	public void updateEmployeeEmailAddress(HotelEmployee employee,
-			String emailAddress) throws Exception {
+	public void updateEmployeeEmailAddress(HotelEmployee employee, String emailAddress) throws Exception {
+		
 		hotelEmployeeDAO.updateEmployee(employee);
 		mailService.sendEmail(employee);
 	}

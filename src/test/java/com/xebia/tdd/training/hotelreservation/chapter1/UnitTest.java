@@ -1,8 +1,10 @@
-package com.xebia.tdd.training.hotelreservation.session1;
+package com.xebia.tdd.training.hotelreservation.chapter1;
 
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
+
+import com.xebia.tdd.training.hotelreservation.chapter1.Unit;
 
 public class UnitTest {
 
