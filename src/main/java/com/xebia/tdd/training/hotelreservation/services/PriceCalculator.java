@@ -8,7 +8,7 @@ import java.util.concurrent.Callable;
 import com.xebia.tdd.training.hotelreservation.model.Hotel;
 import com.xebia.tdd.training.hotelreservation.model.Rates;
 import com.xebia.tdd.training.hotelreservation.model.SearchResult;
-import com.xebia.tdd.training.hotelreservation.utils.CalendarUtil;
+import com.xebia.tdd.training.hotelreservation.session2.CalendarUtil;
 
 /**
  * <p>

@@ -1,4 +1,4 @@
-package com.xebia.tdd.training.hotelreservation.utils;
+package com.xebia.tdd.training.hotelreservation.session2;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -8,6 +8,8 @@ import java.util.List;
 import junit.framework.Assert;
 
 import org.junit.Test;
+
+import com.xebia.tdd.training.hotelreservation.session2.CalendarUtil;
 
 public class CalendarUtilTest {
 

@@ -44,5 +44,4 @@ public class UnitTest {
 		assertTrue(10 == sum);
 	}
 
-
 }
