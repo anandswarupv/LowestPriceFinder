@@ -113,5 +113,36 @@ public abstract class BaseDaoTest {
                 + ")");
         statement.close();
     }
+    
+    public void initalizeBaseDataSet() throws SQLException{
+    	initializeRates();
+    	initializeAddress();
+    	initializeHotel();
+    }
+    
+    private void initializeRates() throws SQLException {
+        Statement statement = connection.createStatement();
+        statement.execute("INSERT INTO RATES VALUES (1001, 110, 80, 90, 80)");
+        statement.execute("INSERT INTO RATES VALUES (1002, 160, 110, 60, 50)");
+        statement.execute("INSERT INTO RATES VALUES (1003, 220, 100, 150, 40)");
+        statement.close();
+    }
+
+    private void initializeAddress() throws SQLException {
+        Statement statement = connection.createStatement();
+        statement.execute("INSERT INTO ADDRESS VALUES (1001, '1111 1st St','Santa Monica','CA','90403','USA')");
+        statement.execute("INSERT INTO ADDRESS VALUES (1002, '1112 2nd St','Santa Monica','CA','90403','USA')");
+        statement.execute("INSERT INTO ADDRESS VALUES (1003, '1113 3rd St','Santa Monica','CA','90403','USA')");
+        statement.close();
+    }
+
+    private void initializeHotel() throws SQLException {
+        Statement statement = connection.createStatement();
+        statement.execute("INSERT INTO HOTEL VALUES (1001, 'Lakewood HOTELS', 3)");
+        statement.execute("INSERT INTO HOTEL VALUES (1002, 'Bridgewood HOTELS', 4)");
+        statement.execute("INSERT INTO HOTEL VALUES (1003, 'Ridgewood HOTELS', 5)");
+        statement.close();
+    }
+
 
 }

@@ -1,16 +1,25 @@
-package com.xebia.tdd.training.hotelreservation.soap;
+package com.xebia.tdd.training.hotelreservation.chapter9;
 
 import static org.junit.Assert.assertEquals;
 
 import java.net.URL;
+import java.sql.SQLException;
 
 import javax.xml.namespace.QName;
 import javax.xml.ws.Service;
 
+import org.junit.Before;
 import org.junit.Test;
 
-public class HotelServiceImplIT {
+import com.xebia.tdd.training.hotelreservation.soap.HotelService;
 
+public class HotelServiceImplIT extends BaseIntegrationTest{
+
+	@Before
+	public void setup() throws SQLException {
+		initalizeBaseDataSet();
+	}
+	
     @Test
     public void testGetHotelName() throws Exception {
         URL wsdlUrl = new URL("http://localhost:8080/soap?wsdl");

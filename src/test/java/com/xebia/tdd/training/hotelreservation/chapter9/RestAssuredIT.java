@@ -1,20 +1,28 @@
-package com.xebia.tdd.training.hotelreservation.controller;
+package com.xebia.tdd.training.hotelreservation.chapter9;
 
 import static com.jayway.restassured.RestAssured.expect;
 import static com.jayway.restassured.RestAssured.get;
 import static org.hamcrest.Matchers.equalTo;
 import static org.junit.Assert.assertEquals;
 
+import java.sql.SQLException;
 import java.util.Arrays;
 import java.util.List;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import com.jayway.restassured.path.json.JsonPath;
 import com.jayway.restassured.response.Response;
+import com.xebia.tdd.training.hotelreservation.dao.BaseDaoTest;
 
-public class RestAssuredIT {
+public class RestAssuredIT extends BaseDaoTest{
     
+	@Before
+	public void setup() throws SQLException {
+		initalizeBaseDataSet();
+	}
+	
     @Test
     public void testGetDummyHotel() throws Exception {
         expect().statusCode(200)
