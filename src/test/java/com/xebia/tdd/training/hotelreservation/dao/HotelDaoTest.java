@@ -14,6 +14,7 @@ import org.mockito.Mockito;
 import com.xebia.tdd.training.hotelreservation.model.Hotel;
 import com.xebia.tdd.training.hotelreservation.utils.ConnectionManager;
 import com.xebia.tdd.training.hotelreservation.utils.HotelBuilder;
+import com.xebia.tdd.training.hotelreservation.utils.MotherOfAllBuilders;
 
 public class HotelDaoTest extends BaseDaoTest {
 
@@ -68,6 +69,13 @@ public class HotelDaoTest extends BaseDaoTest {
     public void testGetHotelUsingStoredProcedure() throws Exception {
         Hotel hotel = hotelDao.getHotelUsingStoredProcedure((Long) 1001L);
         Assert.assertEquals(testHotel.getName(), hotel.getName());
+    }
+
+    @Test
+    public void testAddHotel() {
+        Hotel hotel = MotherOfAllBuilders.aHotel().withId(5001L).build();
+        hotelDao.addHotel(hotel);
+
     }
 
     private void createMocks() {

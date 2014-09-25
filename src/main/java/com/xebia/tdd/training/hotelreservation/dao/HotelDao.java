@@ -35,6 +35,7 @@ public class HotelDao {
 
     private static final String GET_ALL_HOTELS = "select * from hotel";
     private static final String GET_HOTEL = "select * from hotel where id = ?";
+    private static final String INSERT_HOTEL = "insert into hotel values ()";
 
     public Hotel getHotel(Long id) {
         Hotel hotel = null;
@@ -131,4 +132,10 @@ public class HotelDao {
         }
         return hotel;
     }
+
+    public void addHotel(Hotel hotel) {
+        // TODO Auto-generated method stub
+
+    }
+
 }
