@@ -2,8 +2,8 @@ Requirements
 =====================================================================
 
 There are always few people who have couple of vacant non rented beautiful apartments and they are lazy enough not to 
-get them enough attraction to be occupied. As a Product Owner I have a business Idea where I can see making some money out of 
-these properties. So to being with  
+get them enough attraction to be occupied. As a Product Owner I have a business Idea where I can see making some money out 
+of these properties. So to begin with  
 
 # I want to expose a rest service, using which people can Add/Update/Delete/List their apartments. An Apartment should have 
 at least these basic fields.
@@ -16,8 +16,8 @@ at least these basic fields.
 * Owner Name
 
 # The URL of the service should be like  "http://localhost:8080/HotelReservation/apartment/" 
-# Add/Update/Delete/List operation should follow the regular rest guidelines.
-# When an owner adds an apartment as a response he should receive an apartment id in the response , which 
+# Add/Update/Delete/List operation should follow the regular REST guidelines.
+# When an owner adds an apartment as a response he should receive an apartment id , which 
 can be used later to update/Delete/List the apartment.
 
 
