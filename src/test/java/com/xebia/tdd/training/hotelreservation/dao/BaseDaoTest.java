@@ -7,10 +7,12 @@ import java.sql.SQLException;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 
+import com.xebia.tdd.training.hotelreservation.utils.DBUtil;
+
 public abstract class BaseDaoTest {
 
 	protected static Connection connection;
-	private static DBUtils dbUtils;
+	private static DBUtil dbUtils;
 
 	/**
 	 * sets the system properties to use In Memory Datasource Instead of running
@@ -28,7 +30,7 @@ public abstract class BaseDaoTest {
 
 			Class.forName(driver).newInstance();
 			connection = DriverManager.getConnection(url, userName, password);
-			dbUtils = new DBUtils(connection);
+			dbUtils = new DBUtil(connection);
 			dbUtils.init();
 
 		} catch (Throwable e) {

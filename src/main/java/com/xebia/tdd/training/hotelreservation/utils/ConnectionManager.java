@@ -8,8 +8,6 @@ import javax.annotation.PostConstruct;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.stereotype.Component;
 
-import com.xebia.tdd.training.hotelreservation.dao.DBUtils;
-
 @Component
 public class ConnectionManager implements DisposableBean {
 
@@ -26,7 +24,7 @@ public class ConnectionManager implements DisposableBean {
             Class.forName(driver).newInstance();
             connection = DriverManager.getConnection(url, userName, password);
             connection.setAutoCommit(true);
-            DBUtils dbUtils = new DBUtils(connection);
+            DBUtil dbUtils = new DBUtil(connection);
             dbUtils.init();
             dbUtils.populateDefaultData();
         } catch (Exception e) {

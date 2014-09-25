@@ -1,14 +1,14 @@
-package com.xebia.tdd.training.hotelreservation.dao;
+package com.xebia.tdd.training.hotelreservation.utils;
 
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class DBUtils {
+public class DBUtil {
 
 	private Connection connection;
 
-	public DBUtils(Connection connection) {
+	public DBUtil(Connection connection) {
 		this.connection = connection;
 	}
 
