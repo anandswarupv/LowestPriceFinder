@@ -36,7 +36,6 @@ import com.xebia.tdd.training.hotelreservation.model.Hotel;
 import com.xebia.tdd.training.hotelreservation.model.Rates;
 import com.xebia.tdd.training.hotelreservation.services.LowestPriceFinderService;
 import com.xebia.tdd.training.hotelreservation.utils.ConnectionManager;
-import com.xebia.tdd.training.hotelreservation.utils.HotelDatabase;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration
@@ -170,12 +169,6 @@ public class LowestPriceFinderControllerTest {
         public ConnectionManager connectionManager() {
             ConnectionManager connectionManager = new ConnectionManager();
             return connectionManager;
-        }
-
-        @Bean
-        public HotelDatabase hotelDatabase() {
-            HotelDatabase hotelDatabase = new HotelDatabase();
-            return hotelDatabase;
         }
 
         private ArrayList<Hotel> getDummyHotels() {

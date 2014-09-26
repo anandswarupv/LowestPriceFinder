@@ -1,4 +1,4 @@
-package com.xebia.tdd.training.hotelreservation.soap;
+package com.xebia.tdd.training.hotelreservation.chapter9;
 
 import static org.junit.Assert.assertEquals;
 
@@ -9,8 +9,11 @@ import javax.xml.ws.Service;
 
 import org.junit.Test;
 
-public class HotelServiceImplIT {
+import com.xebia.tdd.training.hotelreservation.soap.HotelService;
 
+public class SOAPIT extends BaseSmokeTest{
+
+	
     @Test
     public void testGetHotelName() throws Exception {
         URL wsdlUrl = new URL("http://localhost:8080/soap?wsdl");

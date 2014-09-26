@@ -18,6 +18,7 @@ public class HotelEmployeeServiceTest {
 
 	private HotelEmployeeService employeeService;
 	private HotelEmployeeDAO hotelEmployeeDAO;
+	private HotelEmployeeMailService emailService;
 
 	@Before 
 	public void setup(){
@@ -76,7 +77,7 @@ public class HotelEmployeeServiceTest {
 	@Test
 	public void shouldSendEmailAfterUpdatingTheDatabase() throws Exception {
 		
-		HotelEmployeeMailService emailService = Mockito.mock(HotelEmployeeMailService.class);
+		emailService = Mockito.mock(HotelEmployeeMailService.class);
 		employeeService.setHotelEmployeeEmailService(emailService);
 
 		HotelEmployee employee = new HotelEmployee();

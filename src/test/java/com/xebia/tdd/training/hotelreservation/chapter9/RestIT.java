@@ -1,4 +1,4 @@
-package com.xebia.tdd.training.hotelreservation.controller;
+package com.xebia.tdd.training.hotelreservation.chapter9;
 
 import static com.jayway.restassured.RestAssured.expect;
 import static com.jayway.restassured.RestAssured.get;
@@ -13,7 +13,7 @@ import org.junit.Test;
 import com.jayway.restassured.path.json.JsonPath;
 import com.jayway.restassured.response.Response;
 
-public class RestAssuredIT {
+public class RestIT extends BaseSmokeTest{
     
     @Test
     public void testGetDummyHotel() throws Exception {

@@ -3,8 +3,8 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.training</groupId>
-	<artifactId>LowestPriceFinder</artifactId>
-	<name>LowestPriceFinder</name>
+	<artifactId>HotelReservation</artifactId>
+	<name>HotelReservationr</name>
 	<packaging>war</packaging>
 	<version>1.0-SNAPSHOT</version>
 	<properties>
