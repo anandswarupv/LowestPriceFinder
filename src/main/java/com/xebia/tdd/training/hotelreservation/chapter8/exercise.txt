@@ -1,0 +1,5 @@
+
+1) As a Product Owner I need a REST service that can give the Hotel details for a given Hotel ID
+
+2) As a Product Owner I need a REST service that can give a complete list of all the hotels
+registered with my service

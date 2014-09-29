@@ -1,0 +1,10 @@
+
+1) As a Product Owner I want to be able to search for a Hotel using its unique ID
+
+2) As a Product Owner I want to be able to get a List of all the Hotels that 
+are registered with my service.
+
+3) As a Product Owner I want to be able to get the Address for a Hotel using its unique ID
+
+4) As a Product Owner I want to be able to get the Rates for a Hotel using its unique ID
+
