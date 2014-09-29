@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class ConnectionManager implements DisposableBean {
 
-    private static String url = "jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;MODE=PostgreSQL;TRACE_LEVEL_SYSTEM_OUT=1";
+    private static String url = "jdbc:h2:mem:appdb;DB_CLOSE_DELAY=-1;MODE=PostgreSQL;TRACE_LEVEL_SYSTEM_OUT=1";
     private static String driver = "org.h2.Driver";
     private static String userName = "sa";
     private static String password = "password";
