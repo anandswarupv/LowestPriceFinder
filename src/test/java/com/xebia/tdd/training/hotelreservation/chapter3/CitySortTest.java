@@ -15,13 +15,7 @@ public class CitySortTest {
     }
 
     @Test
-    public void shouldSortCitiesBasedOnName() {
-        /*
-         * CitySort citySort = new CitySort(); List<String> sortedListOfCities =
-         * citySort.sort(Arrays.asList("New York", "Delhi", "Paris", "London"));
-         * Assert.assertThat(sortedListOfCities, Matchers.contains("Delhi",
-         * "London", "New York", "Paris"));
-         */
+    public void shouldSortCitiesBasedOnNameInASC() {
     }
 
 }
