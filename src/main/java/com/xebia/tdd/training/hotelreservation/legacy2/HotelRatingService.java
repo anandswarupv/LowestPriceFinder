@@ -12,7 +12,19 @@ public class HotelRatingService {
 	public List<HotelRating> getUpdatedHotelRatings(){
 		List<HotelRating> allHotelRatings = hotelRatingDAO.getAllHotelRatings();
 		sendEmailToAdmin(allHotelRatings);
+		sendEmailToXYZ(new Object());
+		updateRemoteDatabase(new Object());
 		return allHotelRatings;
+	}
+
+	public void updateRemoteDatabase(Object object) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void sendEmailToXYZ(Object object) {
+		// TODO Auto-generated method stub
+		
 	}
 
 	public void sendEmailToAdmin(List<HotelRating> allHotelRatings) {
