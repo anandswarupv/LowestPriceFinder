@@ -3,13 +3,14 @@ package com.xebia.tdd.training.hotelreservation.chapter1;
 import junit.framework.Assert;
 
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class UnitTestSideEffects {
 
 	private static CacheService cacheService ;
 	
-	@Before
+	@BeforeClass
 	public static void init(){
 		cacheService = new CacheService();
 	}

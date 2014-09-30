@@ -1,5 +1,6 @@
 package com.xebia.tdd.training.hotelreservation.chapter4;
 
+import org.hamcrest.Matcher;
 import org.hamcrest.Matchers;
 import org.junit.Assert;
 import org.junit.Before;
@@ -20,8 +21,8 @@ public class HotelEmployeeServiceTest {
 	private HotelEmployeeDAO hotelEmployeeDAO;
 	private HotelEmployeeMailService emailService;
 
-	@Before 
-	public void setup(){
+	@Before
+	public void setup() {
 		employeeService = new HotelEmployeeService();
 		hotelEmployeeDAO = Mockito.mock(HotelEmployeeDAO.class);
 		employeeService.setHotelEmployeeDAO(hotelEmployeeDAO);
@@ -34,36 +35,38 @@ public class HotelEmployeeServiceTest {
 		searchParameters.setEmployeeAge(12);
 		searchParameters.setEmployeeCountry("IN");
 		searchParameters.setEmployeeName("Name");
-		
+
 		employeeService.searchEmployee(searchParameters);
-		
-		Mockito.verify(hotelEmployeeDAO, Mockito.times(1)).searchEmployee(Mockito.eq("Name"), Mockito.eq(12), Mockito.anyString());
+
+		Mockito.verify(hotelEmployeeDAO, Mockito.times(1)).searchEmployee(
+				Mockito.eq("Name"), Mockito.eq(12), Mockito.anyString());
 	}
 
 	// Argument Matchers Scenario
 	@Test
 	public void shouldUpdateEmployeeCorrectly() throws Exception {
-		
+
 		employeeService.updateEmployee(new HotelEmployee());
 
-		ArgumentMatcher<HotelEmployee> argumentMatcher = new ArgumentMatcher<HotelEmployee>() {
+		Matcher<HotelEmployee> matcher = new ArgumentMatcher<HotelEmployee>() {
 			@Override
 			public boolean matches(Object argument) {
 				HotelEmployee employee = (HotelEmployee) argument;
-				Assert.assertThat(1, Matchers.is(employee.getSerialid()));
+				Assert.assertTrue(1 == employee.getSerialid());
 				return true;
 			}
 		};
 
 		Mockito.verify(hotelEmployeeDAO, Mockito.times(1)).updateEmployee(
-				Mockito.argThat(argumentMatcher));
+				Mockito.argThat(matcher));
 		Mockito.verifyNoMoreInteractions(hotelEmployeeDAO);
 	}
 
 	// Exception Throws Scenario
 	@Test(expected = IllegalArgumentException.class)
-	public void shouldThrowIllegalArgumentExceptionOnUpdateIfNoSerialId() throws Exception {
-		
+	public void shouldThrowIllegalArgumentExceptionOnUpdateIfNoSerialId()
+			throws Exception {
+
 		HotelEmployee employee = new HotelEmployee();
 
 		Mockito.when(hotelEmployeeDAO.updateEmployee(Mockito.eq(employee)))
@@ -72,17 +75,22 @@ public class HotelEmployeeServiceTest {
 		employeeService.updateEmployee(employee);
 
 	}
+	
+	
 
 	// Mocks Execution Order Scenario
 	@Test
 	public void shouldSendEmailAfterUpdatingTheDatabase() throws Exception {
-		
+
 		emailService = Mockito.mock(HotelEmployeeMailService.class);
 		employeeService.setHotelEmployeeEmailService(emailService);
 
 		HotelEmployee employee = new HotelEmployee();
 
+		// Execution
 		employeeService.updateEmployeeEmailAddress(employee, "a@a.com");
+		
+		
 
 		InOrder inOrder = Mockito.inOrder(emailService, hotelEmployeeDAO);
 		inOrder.verify(hotelEmployeeDAO).updateEmployee(Mockito.eq(employee));
@@ -94,7 +102,7 @@ public class HotelEmployeeServiceTest {
 	}
 
 	@org.junit.After
-	public void tearDown(){
+	public void tearDown() {
 		Mockito.reset(hotelEmployeeDAO);
 	}
 }

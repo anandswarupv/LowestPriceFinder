@@ -1,6 +1,8 @@
 CreditCard Validation Service
 
-Create a simple java service that takes a Credit Card number and Type as Input and validates it. For Validation, we can use third party APIs "VisaValidator", "MasterValidator" and "AmexValidator". These API are paid service, so we need to ensure we do the basic validations before calling the API
+Create a simple java service that takes a Credit Card number and Type as Input and validates it. 
+For Validation, we can use third party APIs "VisaValidator", "MasterValidator" and "AmexValidator". 
+These API are paid service, so we need to ensure we do the basic validations before calling the API
 
 Basic Checks before calling the third party
 1. Credit Card Number should be exactly 16 digits

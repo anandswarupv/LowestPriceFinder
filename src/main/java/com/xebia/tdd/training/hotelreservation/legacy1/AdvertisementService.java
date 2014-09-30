@@ -7,16 +7,13 @@ import java.util.Map;
 
 public class AdvertisementService {
 
-	private AdvertisementServiceProvider1 advertisementServiceProvider1;
-	private AdvertisementServiceProvider2 advertisementServiceProvider2;
-
 
 	public List<Advertisement> getAllAdvertisements() {
 		List<Advertisement> advertisements = new ArrayList<Advertisement>();
 		Map<String,Advertisement> advertisementsMap = new HashMap<String, Advertisement>();
 		
-		List<Advertisement> provider1Advertisements = advertisementServiceProvider1.getAdvertisements();
-		List<Advertisement> provider2Advertisements = advertisementServiceProvider2.getAdvertisements();
+		List<Advertisement> provider1Advertisements = new AdvertisementServiceProvider1().getAdvertisements();
+		List<Advertisement> provider2Advertisements = new AdvertisementServiceProvider2().getAdvertisements();
 
 	
 		advertisements.addAll(provider1Advertisements);

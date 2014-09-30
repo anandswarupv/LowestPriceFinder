@@ -2,10 +2,9 @@ package com.xebia.tdd.training.hotelreservation.chapter1;
 
 import static org.junit.Assert.assertTrue;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
-@Ignore
+
 public class UnitTest {
 
 
@@ -25,7 +24,7 @@ public class UnitTest {
 
 	}
 
-	//@Test
+	@Test
 	public void shouldNotThrowNullPointerExceptionForNullArguments()
 			throws Exception {
 		// Setup

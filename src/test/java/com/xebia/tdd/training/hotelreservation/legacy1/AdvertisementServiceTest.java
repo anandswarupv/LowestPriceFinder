@@ -7,7 +7,6 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
-import org.powermock.reflect.Whitebox;
 
 public class AdvertisementServiceTest {
 
@@ -22,8 +21,6 @@ public class AdvertisementServiceTest {
 		serviceProvider1 = Mockito.mock(AdvertisementServiceProvider1.class);
 		serviceProvider2 = Mockito.mock(AdvertisementServiceProvider2.class);
 
-		Whitebox.setInternalState(advertisementService, "advertisementServiceProvider1", serviceProvider1 );
-		Whitebox.setInternalState(advertisementService, "advertisementServiceProvider2", serviceProvider2 );
 	}
 	
 	@Test

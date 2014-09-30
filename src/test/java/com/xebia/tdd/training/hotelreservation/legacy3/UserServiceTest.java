@@ -1,4 +1,4 @@
-package com.xebia.tdd.training.hotelreservation.legacy4;
+package com.xebia.tdd.training.hotelreservation.legacy3;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

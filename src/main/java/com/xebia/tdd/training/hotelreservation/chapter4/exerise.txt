@@ -17,5 +17,6 @@ Employee Name, Employee Age and Employee Country.
 4) As a Product Owner I want to update Employee EmailAddress which should update the email address in the database and send 
 and email to the employee's new address. Email sending should happen after the database has been updated.
 
-5) As a Product Owner I want to merge 2 employees records and during merging the new field will be the concat of individual fields,
+5) As a Product Owner I want to merge 2 employees records and during merging the new
+field will be the concat of individual fields,
 the new employee should be saved in database.
