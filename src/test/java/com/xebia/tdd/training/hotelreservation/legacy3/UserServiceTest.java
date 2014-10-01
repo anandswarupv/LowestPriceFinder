@@ -12,51 +12,57 @@ import com.xebia.tdd.training.hotelreservation.legacy3.UserDAO;
 import com.xebia.tdd.training.hotelreservation.legacy3.UserService;
 
 @RunWith(PowerMockRunner.class)
-@PrepareForTest({UserService.class})
+@PrepareForTest({ UserService.class })
 public class UserServiceTest {
 
 	private UserDAO userDAO;
-	
+
 	@org.junit.Before
-	public void setup(){
-		userDAO = Mockito.mock(UserDAO.class);	
+	public void setup() {
+		userDAO = Mockito.mock(UserDAO.class);
 	}
-	
-	
-	//@Test
-	public void shouldSaveUserCorrectly_1(){
+
+	// @Test
+	public void shouldSaveUserCorrectly_2() {
+
+		UserService userService = Mockito.mock(UserService.class);
+		userService.setUserDAO(userDAO);
+
+		// Mockito.doReturn(true).when(userService).sendEmailToUser((User)Mockito.anyObject());
+		Mockito.when(userService.saveUser((User) Mockito.anyObject()))
+				.thenCallRealMethod();
+
+		userService.saveUser(new User());
+		
+		//Verification
+	}
+
+	// @Test
+	public void shouldSaveUserCorrectly_1() {
 		UserService userService = new UserService();
 		userService.setUserDAO(userDAO);
 		UserService serviceSpy = Mockito.spy(userService);
-		
-//		Mockito.doReturn(true).when(serviceSpy).sendEmailToUser((User)Mockito.anyObject());
-		
+
+		// Mockito.doReturn(true).when(serviceSpy).sendEmailToUser((User)Mockito.anyObject());
+
 		serviceSpy.saveUser(new User());
+		
+		//Verification
 	}
-	
-	
-	//@Test
-	public void shouldSaveUserCorrectly_2(){
 
-		UserService userService  = Mockito.mock(UserService.class);
-		userService.setUserDAO(userDAO);
-		
-//		Mockito.doReturn(true).when(userService).sendEmailToUser((User)Mockito.anyObject());
-		Mockito.when(userService.saveUser((User)Mockito.anyObject())).thenCallRealMethod();
-		
-		userService.saveUser(new User());
-	}
-	
-	
 	@Test
-	public void shouldSaveUserCorrectly_3() throws Exception{
+	public void shouldSaveUserCorrectly_3() throws Exception {
 
-		UserService userService  = PowerMockito.mock(UserService.class);
+		UserService userService = PowerMockito.mock(UserService.class);
 		userService.setUserDAO(userDAO);
-		
-		PowerMockito.doReturn(true).when(userService,"sendEmailToUser",(User)Mockito.anyObject());
-		PowerMockito.when(userService.saveUser((User)Mockito.anyObject())).thenCallRealMethod();
-		
+
+		PowerMockito.doReturn(true).when(userService, "sendEmailToUser",
+				(User) Mockito.anyObject());
+		PowerMockito.when(userService.saveUser((User) Mockito.anyObject()))
+				.thenCallRealMethod();
+
 		userService.saveUser(new User());
+		
+		//Verification
 	}
 }

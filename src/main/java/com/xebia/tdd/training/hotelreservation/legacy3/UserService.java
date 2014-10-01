@@ -7,17 +7,16 @@ public class UserService {
 	private UserDAO userDAO;
 	private EmailService emailService;
 
-	public boolean saveUser(User user){
+	public boolean saveUser(User user) {
 		user.setName("Name1");
 		userDAO = new UserDAO();
 		userDAO.save(user);
-		
+
 		sendEmailToUser(user);
 		return true;
 	}
 
-	
-     boolean sendEmailToUser(User user) {
+	private boolean sendEmailToUser(User user) {
 		emailService.sendEmailToUser(user);
 		return true;
 	}
